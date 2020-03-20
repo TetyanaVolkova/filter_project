@@ -1,0 +1,91 @@
+// ----------     ---------- Profile Page
+// site profile index
+// 1279px is to adjust for angular material bug
+@media screen and (max-width: 1279px) {
+  #profile-map {
+    height: 30rem;
+    margin: 6% 0;
+  }
+
+  #lab-map {
+    height: 30rem;
+  }
+
+  #profileflex {
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+// ----------     ---------- Splash Page
+@media screen and (max-width: 800px) {
+  #svgplot {
+    width: 100%;
+    height: 100%;
+  }
+  .constNotice {
+    font-size: 3vw;
+  }
+}
+
+// app.scss search section styles ---------- Main Page?
+@media screen and (max-width: 445px) {
+  .xsmall-show {
+    display: inline;
+  }
+}
+
+// this MQ will hit IE10+ Browsers
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  #splash_content {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .hrefgroup a {
+    float: left;
+  }
+
+  .md-toolbar-tools h1, .md-toolbar-tools h2, md-toolbar-tools h3 {
+    display: block;
+    max-width: 100%;
+  }
+
+  // so the Viz is centered a little more
+  #dashboard {
+    margin-left: 5vw;
+  }
+  .lab_Container {
+    overflow: hidden;
+  }
+  #iconcol > div {
+    height: 100%;
+  }
+}
+
+// this MQ will hit most Firefox Browsers
+@-moz-document url-prefix('') {
+  #splash_content {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+  #mapkey div {
+    margin: auto;
+  }
+
+  // These are for stretching the color ribbons on the right nav
+  // and making sure the white on the left nav doesn't show
+  .borderless {
+    margin-left: -2px;
+    margin-right: -3px;
+  }
+  .bottomborder {
+    margin-right: -3px;
+  }
+}
+
+// this MQ should work for chrome and safari
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+}

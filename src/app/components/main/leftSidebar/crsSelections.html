@@ -1,0 +1,226 @@
+<!--  Search Tab only shows when the user is searching for sites -->
+<div fxFlex layout="column" role="navigation" class="md-default-theme">
+    <div>
+        <ul class="search-box">
+            <li>
+                <!-- crs -->
+                <mat-form-field>
+                    <input tabindex="-1"
+                    type="text"
+                    matInput
+                    placeholder="Search CRS Name or ID"
+                    #crsChipInput
+                    [formControl]="crsChipCtrl"
+                    [matAutocomplete]="crsAuto"
+                    aria-label="PI name">
+                    <mat-autocomplete
+                    autoFocus=false
+                    (optionSelected)="crsSelected($event)"
+                    #crsAuto="matAutocomplete">
+                        <mat-option
+                        [attr.disabled]="false"
+                        (click)="toggleFilterValue('crs', 'CRS', crsName, $event)"
+                        *ngFor="let crsName of crsFilteredOptions | async"
+                        [value]="crsName"
+                        >
+                            <span class="options_span">
+                                {{crsName}}
+                            </span>
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </li>
+            
+            <li>
+                <!-- pis -->
+                <mat-form-field>
+                    <input
+                    tabindex="-1"
+                    type="text"
+                    matInput
+                    placeholder="Search PI Name"
+                    #chipInput
+                    [formControl]="chipCtrl"
+                    [matAutocomplete]="pisAuto"
+                    aria-label="PI name">
+                    <mat-autocomplete
+                    (optionSelected)="selected($event)"
+                    #pisAuto="matAutocomplete">
+                        <mat-option
+                        [attr.disabled]="false"
+                        (click)="toggleFilterValue('pis', 'PI', piName, $event )"
+                        *ngFor="let piName of filteredOptions | async"
+                        [value]="piName"
+                        >
+                            <span class="options_span">
+                                {{piName}}
+                            </span>
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </li>
+        </ul>
+            
+        <ul class="nav">
+            <li *ngFor="let ft of objectKeys(filterType) | filterPipe" class="left menuItem">
+                <button class='{ft}'
+                    class="search-button menu-item"
+                    layout-fill
+                    (click)="collapse(ft)">
+                    <div layout="row" [ngClass]="{borderless: (ft===previous), bottomborder: !(ft===previous)}">
+                        <h2 fxFlex="85">
+                            {{filterType[ft].name}}
+                        </h2>
+                        <div class="menu-arrow" fxFlex="15">
+                            <i class="fa fa-caret-down"
+                            [ngClass]="{'open': ft===previous, 'collapsed': !(ft===previous)}"></i>
+                             <!-- changed icon to drop down arrow -->
+                        </div>
+                    </div>
+                </button>
+
+                <!-- epi -->
+                <ul class="slide" *ngIf="ft =='epidemiology' && previous =='epidemiology'" >
+                    <li *ngFor="let n of objectKeys(filterType[ft]['attributes']); let index = index">
+                        <mat-select
+                        [(ngModel)]="filter[ft][n]"
+                        placeholder ={{n}}
+                        id ={{n}}
+                        multiple="true">
+                            <mat-option
+                            (click)="changeFilter(t)"
+                            *ngFor="let t of filterType[ft]['attributes'][n]"
+                            [value]="t"
+                            >
+                                {{t}}
+                            </mat-option>
+                        </mat-select>
+                    </li>
+                </ul>
+                <!-- Network -->
+                <ul class="slide" *ngIf="ft == 'network' && previous == 'network'">
+                    <li>
+                        <mat-select aria-label="NIAID HIV/AIDS Network"
+                        [(ngModel)]="filter[ft]['NIAID HIV/AIDS Network']"
+                        placeholder="Network" multiple="true"
+                        [disabled]="filter['unfundednetwork']['status'].length != 0"
+                        [attr.disabled]="filter['unfundednetwork']['status'].length != 0"
+                        (click)="lockAlert($event)">
+                            <mat-option
+                            (click)="changeFilter( value ); closeimpacct = !closeimpacct"
+                            [value]="value"
+                            *ngFor="let value of filterType[ft]['attributes']['NIAID HIV/AIDS Network']"
+                            >
+                                {{value}}
+                            </mat-option>
+                        </mat-select>
+                    </li>
+                </ul>
+                <!-- NIAID Reserve-->
+                <ul class="slide" *ngIf="ft == 'unfundednetwork' && previous == 'unfundednetwork'">
+                    <li>
+                        <mat-select
+                        placeholder="NIAID Reserve CRSs"
+                        [attr.disabled]="filter['network']['NIAID HIV/AIDS Network'] != ''"
+                        [disabled]="filter['network']['NIAID HIV/AIDS Network'] != ''"
+                        class="slide reserve-list"
+                        (click)="toggleFilterValue('unfundednetwork', 'status', 'NIAID Reserve CRSs', $event, filter['network']['NIAID HIV/AIDS Network'] != '' )"
+                        aria-label="NIAID Reserve CRSs"
+                        [ngClass]="{'nav-item-disabled': filter['network']['NIAID HIV/AIDS Network'] != '', 'nav-item-active': filter['unfundednetwork'].status.length > 0}">
+                        </mat-select>
+                    </li>
+                </ul>
+                <!-- location -->
+                <ul class="slide" *ngIf="ft == 'location' && previous == 'location'">
+                    <li>
+                        <mat-select placeholder="Continent"
+                        multiple="true"
+                        [(ngModel)]="filter[ft]['Continent']">
+                            <mat-option (click)="changeFilter(continent)"
+                            *ngFor="let continent of objectKeys(filterType[ft]['attributes'])"
+                            [value]="continent"
+                            >
+                                {{ continent }}
+                            </mat-option>
+                        </mat-select>
+                    </li>
+                    <li>
+                        <mat-select
+                        *ngIf="filter[ft]['Continent'].length !== 0"
+                        placeholder="Country" multiple="true"
+                        [(ngModel)]="filter['location']['Country']">
+                            <div *ngFor="let continent of filter[ft]['Continent']">
+                                <mat-option
+                                *ngFor="let country of objectKeys(filterType[ft]['attributes'][continent])"
+                                (click)="changeFilter(country)"
+                                [value]="country"
+                                >
+                                    {{country}}
+                                </mat-option>
+                            </div>
+                        </mat-select>
+                    </li>
+                    <li>
+                        <mat-select placeholder="State"
+                        [(ngModel)]="filter[ft]['State']"
+                        *ngIf="filter['location']['Country'] && filter['location']['Country'].length !== 0"
+                        multiple="true">
+                            <div *ngFor="let continent of filter[ft]['Continent']">
+                                <div *ngFor="let country of filter[ft]['Country']">
+                                    <mat-option
+                                    (click)="changeFilter(state)"
+                                    [value]="state"
+                                    *ngFor="let state of filterType[ft]['attributes'][continent][country]"
+                                    >
+                                        {{state}}
+                                    </mat-option>
+                                </div>
+                            </div>
+                        </mat-select>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="nav-subheader">
+            <div layout="column" layout-align="center center">
+                <h1 id="total" class="total">{{crss.length}}</h1>
+                <div class="sub-text">
+                    {{crss.length === 1 ? 'Site Found' : 'Sites Found'}}
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-subheader" *ngIf="getObjSize(filter) != 0">
+            <div class="filter-chip" layout-align="start start">
+                <div class="mat-chips">
+                    <mat-chip matTooltip="{{chip.name}}"
+                    [matTooltipPosition]="position"
+                    [ngClass]="chip.catagory"
+                    *ngFor="let chip of chips; let index = index">
+                        <div class="md-chip-content">
+                            {{chip.name}}
+                        </div>
+                        <div class="md-chip-remove-container">
+                            <button
+                            aria-label="Close icon"
+                            class="md-chip-remove"
+                            (click)="closeChip( index, chip )">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </mat-chip>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-subheader" [ngClass]="{show: getObjSize(filter) > 0}">
+            <a class="md-primary" aria-label="reset" (click)="reset()">
+                Reset Search Criteria
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+        <!--Divider span to pull things to the bottom -->
+        <div class="nav-subheader"></div>
+    </div>
+</div>

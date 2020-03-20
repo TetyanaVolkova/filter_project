@@ -1,0 +1,60 @@
+<div fxFlex layout="column" role="navigation" class="md-default-theme">
+    <ul fxLayout="column" tabindex="-1" id="moveFocus" class="nav">
+
+    <!--  Add aria-labelledby="mainCRScontent" to link (add as a label) to the CRS main content (/public/partials/content/profile/index.html) for assistive technologies -->
+        <li fxLayoutGap="10px" class="leftf menuItem">
+            <button md-sidenav-focus class="profile-menu profile search-button menu-item button button-toggle" [ngClass]="{'active': router.url.includes('/profile')}" fxFlex (click) = "goToView('profile')">
+                <span fxFlex="10">
+                    <!--Filler-->
+                </span>
+                <h2>
+                    Profile
+                </h2>
+            </button>
+        </li>
+
+        <li fxLayoutGap="10px" class="lefts menuItem">
+            <button class="profile-menu pharmacy search-button menu-item button button-toggle" [ngClass]="{'active': router.url.includes('/pharms')}" fxFlex (click) = "goToView('pharms')">
+                <span fxFlex="10">
+                    <!--Filler-->
+                </span>
+                <h2>
+                    Pharmacy
+                </h2>
+            </button>
+        </li>
+
+        <li fxLayoutGap="10px" class="leftp menuItem">
+            <button class="profile-menu lab search-button menu-item button button-toggle" [ngClass]="{'active': router.url.includes('/labs')}" fxFlex (click) = "goToView('labs')">
+                <span fxFlex="10">
+                    <!--Filler-->
+                </span>
+                <h2>
+                    Laboratory
+                </h2>
+            </button>
+        </li>
+
+            <li fxLayoutGap="10px" class="leftt menuItem">
+                <button class="profile-menu epi search-button menu-item button button-toggle" [ngClass]="{'active': router.url.includes('/epi')}" fxFlex (click) = "goToView('epi')">
+                    <span fxFlex="10">
+                        <!--Filler-->
+                    </span>
+                    <h2>
+                        Population Characteristics
+                    </h2>
+                </button>
+            </li>
+        </ul>
+    <!-- Left nav disclaimer -->
+    <div [ngClass]="{'profileContainer': labDis === 1, 'labContainer': labDis === 2, 'pharmacyContainer': labDis === 3, 'epiContainer': labDis === 4}" class ="leftDis" *ngIf='disclaimer != null' >
+        <p matTooltip="Email Program Officer" class="disclaimer" >{{disclaimer}}
+            <button *ngIf = "crs.ocsostaff" fxLayoutGap="10px" mat-icon-button class="md-icon-button md-primary buttonDis" aria-label="Contact Principal Investigator's email address">
+                <a href="mailto:{{crs.ocsostaff.email}}" alt="Email" aria-label="email" title ="email">
+                    <mat-icon svgIcon="ic_email" class='envDis' alt="Email"></mat-icon>
+                </a>
+            </button>
+        </p>
+    </div>
+<!--Divider span to pull things to the bottom -->
+</div>

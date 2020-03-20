@@ -1,0 +1,40 @@
+<div id="main-map-canvas" fxLayout="column" fxFlex>
+    <agm-map
+      [minZoom] = 2
+      [maxZoom] = 12
+      [fitBounds]="true"
+      (mapClick)="close_window($event, marker)"
+      [styles]="styles"
+      #AgmMap>
+      <agm-marker
+        [agmFitBounds]="true"
+        [animation]="'DROP'"
+        (markerClick)="closePrevious($event, infoWindow)"
+        *ngFor="let crs of ( showFavorite ? favoriteCrs : crss )"
+        [latitude]="crs.center.latitude"
+        [longitude]="crs.center.longitude"
+        [iconUrl]='{"url": MapFactory.getIconPath( crs.color ), "scaledSize": {"height": 25, "width": 25}}'>
+        <agm-info-window  #infoWindow>
+          <div class="info-window"> 
+            <a class="windowname" (click)="siteClick(crs)">{{crs.crs_name}}</a>
+            <button *ngIf="!isfavored( crs )" aria-label="Remove from favorites" (click)="CrsFactory.alterFavorite( crs )">
+              <i class="fa fa-star-o info-window-icon" style="color: red;">
+              </i>
+            </button>
+            <button *ngIf="isfavored( crs )" aria-label="Add to favorite" (click)="CrsFactory.alterFavorite( crs )">
+              <i class="fa fa-star" style="color: red;" alt="Map Marker"></i>
+            </button>
+            <div>
+              {{crs.ctu_name}}
+            </div>
+            <div *ngIf="crs.fundednetwork" class="funded-networks-map">
+              {{crs.fundednetwork.network}}
+            </div>
+          </div>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+    <div id="mapkey" fxLayout="row">
+      <div *ngFor="let name of objectKeys(legends)"><img src="{{legends[name]}}" alt=""/> {{name}}</div>
+    </div>
+  </div>

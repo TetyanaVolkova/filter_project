@@ -1,0 +1,21 @@
+<!-- Main Toolbar at  top of screen -->
+<div id="container" *ngIf="loaded" flFlex fxLayout="column">
+    <navheaderComponent *ngIf="!mainView" role="banner" class="md-whiteframe-glow-z1 site-content-toolbar md-default-theme header"></navheaderComponent>
+    <headerComponent *ngIf="mainView" role="banner"></headerComponent>
+    <div id="main-content" flFlex="1" fxLayout="row">
+   
+        <mat-sidenav class="md-sidenav-left" #sidenav [opened]="lockLeft" [ngClass]="{close_left_nav: !lockLeft, navs_are_closed: !mainView}" id="left-nav" role="navigation" fxLayout="column">
+            <leftSidebarComponent *ngIf="!profileView"></leftSidebarComponent>
+            <profileLeftComponent *ngIf="profileView"></profileLeftComponent>
+        </mat-sidenav>
+
+        <router-outlet></router-outlet>
+
+        <mat-sidenav [ngClass]="{hide_right_nav: !(lockRight || showFavorite), navs_are_closed: !mainView}" [opened]="true" role="navigation" id="right-nav" class="site-cards">
+            <rightSidebarComponent></rightSidebarComponent>
+        </mat-sidenav>
+    </div>
+    <footerComponent fxLayout="column" role="contentinfo" class="md-whiteframe-glow-z1 site-content-toolbar md-default-theme main-footer"></footerComponent>
+</div>
+
+<LoadingDirective *ngIf="!loaded" ng-class="{loaded: loaded}"></LoadingDirective>

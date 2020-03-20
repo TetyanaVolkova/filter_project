@@ -1,0 +1,545 @@
+/* app css stylesheet */
+
+/**************************************
+*
+* Main Content Layout
+*
+***************************************/
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+.skip {
+  position: fixed;
+  background-color: white;
+  color:red!important;
+  top: 0;
+  left: 0;
+  height: 3 vh;
+  transform: translateY(-50px);
+}
+.skip:focus {
+  transform: translateY(0);
+}
+
+navheaderComponent {
+  align-content: flex-start;
+}
+searchparentcomponent {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#main-content {
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+h1:focus,
+p:focus {
+  outline: none;
+}
+
+.content {
+  background: #f5f5f5;
+  overflow: overlay;
+  -webkit-overflow: auto;
+  -webkit-height: 100%;
+  height: 100%;
+}
+
+.flex {
+  outline: none;
+}
+
+.content-center .angular-google-map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profileContainer .angular-google-map-container {
+  height: 100%;
+}
+
+/* -------- to make brackets, parenthesis small and nice */
+.brackets {
+  font-size: 90%;
+  position: relative;
+  top: -1px;
+  font-weight: bolder;
+}
+.horizontal_line {
+  height: 4px;
+  background-color: $divider-grey;
+}
+
+// title image
+.sc-title {
+    max-width: 24.4em;
+}
+
+// so the magnifying glass, star, and hamburger are uniform
+.d3Resize {
+  color: #d8d8d8;
+  background: #444;
+  border: none;
+}
+.d3Resize:hover {
+  opacity: 0.8;
+}
+
+.left_nav_tooltip {
+  margin-left: 5vw !important;
+}
+
+/**************************************
+*
+*Search Section Styles
+*
+***************************************/
+.md-toolbar {
+  overflow: hidden;
+}
+
+.header-title {
+  width: 100%;
+  font-size: smaller;
+  text-align: center;
+}
+// .hidefield {
+//   display: none;
+// }
+div > a.md-button {
+  color: inherit !important;
+}
+// to change the color of the viz icon when favorites is active
+
+.graph_tooltip {
+  border-radius: 10%;
+  stroke-width: 2px;
+  stroke: $nav-colors-4;
+}
+
+visualizationcomponent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.d3Resize[disabled] {
+  color: #363636;
+  #Graph, #star {
+    fill: #363636;
+  }
+}
+.md-button {
+  height: auto;
+}
+.highlight-button {
+  border-bottom: 2px solid $highlight-color;
+}
+.highlight-button h5 {
+  color: $highlight-color;
+}
+.header-button:hover {
+  border-bottom: 2px solid $highlight-color;
+  background-color: transparent;
+}
+.md-button h5 p + p {
+  margin-top: -12px;
+}
+.header-button {
+  border-bottom: 2px solid #444444;
+  flex: 1;
+  padding: 0;
+  margin: 0 1px;
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+#noun_magnify, #star {
+  fill: rgb(216, 216, 216)
+}
+#right-nav-tabs {
+  width: 304px;
+  height: 100%;
+  .bigger_icon {
+    height: 34px;
+    width: 35px;
+    margin-bottom: 7px;
+  }
+  .bigger_icon2 {
+    margin-bottom: 12px;
+    width: 30px;
+    height: 38px;
+  }
+}
+#header-title-box {
+  padding: 0;
+  a {
+    color: transparent;
+  }
+}
+.md-button.lab-icon {
+  padding-left: 0;
+  margin-left: 0;
+  .CrsCtuIcon {
+    margin-right: 14px;
+  }
+}
+.md-toolbar-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 64px;
+  max-height: 64px;
+  h2 {
+    font-size: 22px;
+    font-weight: 100;
+    color: rgba(255,255,255,0.87);
+  }
+  .md-button {
+    h5 {
+      margin: 5px;
+    }
+  }
+  .fa {
+    color: white;
+  }
+}
+
+.header .single-icon .fa {
+  padding-top: 0.5rem;
+  font-size: 1.5rem !important;
+  color: #d8d8d8;
+}
+
+.header .single-icon mat-icon {
+  margin-top: 1rem;
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+#globeicon {
+  color: #d8d8d8;
+}
+
+#star_rate {
+  vertical-align: top;
+  margin-right: 22px;
+  margin-top: -6px;
+}
+
+#star_rate path {
+  stroke: transparent;
+}
+
+a.md-button.md-default-theme:not([disabled]):hover,
+a.md-button:not([disabled]):hover,
+.md-button.md-default-theme:not([disabled]):hover,
+.md-button:not([disabled]):hover {
+  background-color: transparent;
+}
+
+/* ng-cloak override */
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+/* filter menu*/
+.filter-menu {
+  left: 40%;
+}
+
+/**************************************
+*
+*Dashboard Section Styles
+*
+***************************************/
+
+/*dashboard items container*/
+
+#dashboard {
+  height: 100%;
+  width: 90%;
+  margin: 14px auto !important;
+}
+
+.menuItem .pis .md-chips {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.profileContainer i {
+  color: white;
+}
+
+.md-scroll-mask {
+  z-index: 0 !important;
+}
+
+.site-content-footbar {
+  min-height: 30px;
+}
+
+// a:link {
+//   color: rgb(11, 0, 200);
+//   text-decoration: none;
+// }
+a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* make a scrollbar smaller*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+::-webkit-scrollbar:horizontal {
+  width: 10px;
+  padding-right: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $divider-grey !important;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  max-height: 3rem;
+}
+::-webkit-scrollbar-button {
+  background-color: black;
+  height: 1px;
+}
+::-webkit-scrollbar-button:horizontal {
+  background-color: transparent;
+  width: 1px;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(20, 40, 60, 0.4);
+}
+::-webkit-scrollbar-corner {
+  background: rgb(255, 255, 255);
+}
+
+.header-button.site h5 p {
+  color: white;
+}
+
+.md-tooltip {
+  overflow: visible;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    color: white;
+  }
+  15% {
+    color: #f4d36d;
+  }
+  30% {
+    color: white;
+  }
+  45% {
+    color: #f4d36d;
+  }
+  60% {
+    color: white;
+  }
+  75% {
+    color: #f4d36d;
+  }
+  90% {
+    color: white;
+  }
+  100% {
+    color: #f4d36d;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    color: white;
+  }
+  15% {
+    color: #f4d36d;
+  }
+  30% {
+    color: white;
+  }
+  45% {
+    color: #f4d36d;
+  }
+  60% {
+    color: white;
+  }
+  75% {
+    color: #f4d36d;
+  }
+  90% {
+    color: white;
+  }
+  100% {
+    color: #f4d36d;
+  }
+}
+
+@-o-keyframes blink {
+  0% {
+    color: white;
+  }
+  15% {
+    color: #f4d36d;
+  }
+  30% {
+    color: white;
+  }
+  45% {
+    color: #f4d36d;
+  }
+  60% {
+    color: white;
+  }
+  75% {
+    color: #f4d36d;
+  }
+  90% {
+    color: white;
+  }
+  100% {
+    color: #f4d36d;
+  }
+}
+
+@keyframes blink {
+  0% {
+    color: white;
+  }
+  15% {
+    color: #f4d36d;
+  }
+  30% {
+    color: white;
+  }
+  45% {
+    color: #f4d36d;
+  }
+  60% {
+    color: white;
+  }
+  75% {
+    color: #f4d36d;
+  }
+  90% {
+    color: white;
+  }
+  100% {
+    color: #f4d36d;
+  }
+}
+
+#container {
+  width: 100%;
+}
+
+.header-button .favChange {
+  -webkit-animation: blink 3s;
+  animation: blink 3s;
+  color: #f4d36d;
+}
+
+.header-button .siteChange {
+  -webkit-animation: blink 3s;
+  animation: blink 3s;
+  color: #f4d36d;
+}
+
+#container404 {
+  background: url('/images/404background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  #image-container {
+      background: black;
+      opacity: 0.8;
+      height: 100%;
+      display: flex;
+      img {
+          width: 86%;
+          height: 100%;
+          margin: auto;
+      }
+  }
+}
+#fof {
+  display: block;
+  text-align: center;
+  padding: 0 20px;
+}
+#main-content-header {
+  text-align: center;
+}
+#fof .fl_left h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 250%;
+}
+#fof .fl_left h1 strong {
+  color: #000000;
+  background-color: #FFFFFF;
+  font-size: 300%;
+}
+#fof .fl_right {
+  text-align: left;
+}
+#fof .fl_right h2 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+#fof p {
+  display: block;
+  margin: 25px 0 0 0;
+  padding: 0;
+  clear: both;
+  font-size: 16px;
+}

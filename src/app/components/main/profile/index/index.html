@@ -1,0 +1,301 @@
+<div *ngIf="crs" fxLayout="column" id="mainCRScontent" class="center-col profile_Container">
+	<h1 tabindex="0" fxLayout="column" fxLayoutAlign="space-around stretch" class="crs-title">{{crs.crs_id + ' - ' + crs.crs_name | blacklistPipe}}
+	</h1>
+	<!--first row with Network Card, Site Information Card, and Map-->
+	<div fxLayout.gt-md="row" fxLayout="column" fxLayoutAlign="space-evenly">
+
+		<!-- Column for Network Card and Site Information Card -->
+		<div fxLayout="column" fxLayoutAlign="space-evenly stretch" id="profileflex">
+
+			<!-- Network Card -->
+			<div class="whiteframe" fxLayoutAlign="space-around stretch" fxLayout="column">
+				<mat-toolbar class="profilebar">
+					<h2 fxFlex>NIAID Networks</h2>
+				</mat-toolbar>
+
+				<!--Network content!-->
+				<div fxLayout="column" class="md-item-text cards">
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.fundednetwork.network!= null && crs.fundednetwork.network != '' ">
+						<h3 fxFlex="40">Network Affiliation(s):</h3>
+						<div fxFlex>
+						<p>{{ crs.fundednetwork.network }}</p>
+						</div>
+					</div>
+
+				<mat-divider></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center">
+						<h3 fxFlex="40">Site Status:</h3>
+						<div fxFlex>
+							<p>{{ siteStatus(crs) }}</p>
+						</div>
+					</div>
+
+					<mat-divider *ngIf="crs.nichd == 1"></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.nichd == 1">
+						<h3 fxFlex="55">* NICHD funded for IMPAACT</h3>
+					</div>
+				</div>
+			</div>
+			<!--End of the Network Card -->
+			<!--Breaks page if reg lines > 4 <br> !-->
+			<!--Site Information Card -->
+			<div class="whiteframe" fxLayoutAlign="space-around stretch" fxLayout="column">
+				<mat-toolbar class="profilebar" fxLayout="row wrap">
+					<h2>Clinical Research Site (CRS) <span>Information <linkDirective directiveid="CRSinformation" type="profile1" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective></span>
+					</h2>
+				</mat-toolbar>
+
+				<!--content of infobox!-->
+				<div class="md-item-text cards">
+				<!--CRS LEADER!-->
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.crs_leader != null && crs.crs_leader != '' ">
+						<h3 fxFlex="40">CRS Leader:</h3>
+						<div fxFlex>
+							<p>{{crs.crs_leader}}</p>
+						</div>
+					</div>
+
+					<mat-divider *ngIf = "crs.coordinator && crs.coordinator.CRS_COORDINATOR_NAME != null"></mat-divider>
+				<!--CRS COORDINATOR!-->
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.coordinator && crs.coordinator.CRS_COORDINATOR_NAME != null">
+						<h3 fxFlex="40">CRS Coordinator:</h3>
+						<div fxFlex>
+							<p>{{crs.coordinator.CRS_COORDINATOR_NAME}}</p>
+						</div>
+					</div>
+
+					<mat-divider *ngIf = "crs.street_address != null || crs.city != null || crs.state != null || crs.country != null"></mat-divider>
+
+					<!--CRS ADDRESS!-->
+					<div class="cardrow address" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.street_address != null || crs.city != null || crs.state != null || crs.country != null">
+						<h3 fxFlex="40">Clinic Address:</h3>
+						<div class = "md-item-text" fxFlex>
+								<p class= "addRow" *ngIf="crs.street_address === null || crs.street_address !='' || crs.street_address !=' ' ">{{crs.street_address}}<br/></p>
+							<p class= "addRow" *ngIf="crs.street_address2 === null && crs.street_address2 ==='' && crs.street_address2 ===' ' ">{{crs.street_address2}}<br/></p>
+							<p class= "addRow" *ngIf="crs.street_address3 === null && crs.street_address3 ==='' && crs.street_address3 ===' ' ">{{crs.street_address3}}<br/></p>
+							<p class= "addRow" *ngIf="crs.street_address4 === null && crs.street_address4 ==='' && crs.street_address4 ===' ' ">{{crs.street_address4}}<br/></p>
+							<p class= "addRow" *ngIf="crs.internal_office_name != null  || crs.internal_office_name !='' || crs.internal_office_name !=' ' ">{{crs.internal_office_name}}<br/></p>
+							<p class= "addRow">{{crs.city}}<span *ngIf="crs.state">, </span> {{crs.state}}<span *ngIf="crs.zip_code != 'N/A'"> {{crs.zip_code}}</span></p>
+							<p class= "addRow">{{crs.country}}</p>
+						</div>
+					</div>
+					<mat-divider></mat-divider>
+
+					<!--CTU NAME!-->
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.pi">
+						<h3 fxFlex="40">CTU Name:</h3>
+						<div fxFlex>
+							<p>{{crs.ctu_name}}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf="crs.pi"></mat-divider>
+
+					<!--Contact PI!-->
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.pi">
+						<h3 fxFlex="40">Contact PI:</h3>
+						<div fxFlex>
+							<p>{{crs.pi.ctu_contact_pi}}</p>
+						</div>
+					</div>
+
+					<mat-divider *ngIf="crs.pi && crs.pi.ctu_pis"></mat-divider>
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.pi && crs.pi.ctu_pis">
+						<h3 fxFlex="40">Multi-PI's:</h3>
+						<div fxFlex>
+							<p>{{crs.pi.ctu_pis}}</p>
+						</div>
+					</div>
+
+					<mat-divider *ngIf="crs.ocsostaff != null"></mat-divider>
+					<!--PO NAME!-->
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.ocsostaff != null">
+						<h3 fxFlex="40">Program Officer:</h3>
+						<div fxLayout="row" fxFlex>
+							<p>{{crs.ocsostaff.po_name}}
+							</p>
+							<a class="email_link" aria-label="Contact Principal Investigator's email address'" *ngIf = "crs.ocsostaff != null && crs.ocsostaff.email != '' " matTooltip="mail Program Officer" href="mailto:{{crs.ocsostaff.email}}">
+								<mat-icon svgIcon="ic_email" id="emailbtn" alt="Email PO"></mat-icon>
+							</a>
+						</div>
+						<!-- add email label!! -->
+					</div>
+					<mat-divider *ngIf="rsn"></mat-divider>
+
+					<!--rELATED sITES!-->
+					<div class="cardrow" fxLayout="row" *ngIf="rsn">
+					<!-- MD-MENU -->
+						<h3 fxFlex="40">CRSs Associated with CTU:</h3>
+						<button mat-icon-button [matMenuTriggerFor]="appMenu" class="CTU_menu_button phar-icon" aria-label="Open CRSs Associated with CTU menu">
+						  <mat-icon class="material-icons CrsCtuIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+						</button>
+						<mat-menu #appMenu="matMenu" fxLayout>
+								<p id="fundedmenu" *ngIf="crs.related_funded">Network Affiliation(s)</p>
+									<button mat-menu-item *ngFor="let obj of crs.related_funded" class="menu_button" data-ng-keydown="closeOnTab( $event )" md-menu-focus-target (click)="returnFocus( obj )">
+										<span>{{obj.crs_id + " - " + obj.crs_name | blacklistPipe}}{{$lpst ? '' : ''}}</span>
+									</button>
+							<p id="ufmenu" *ngIf="crs.related_unfunded">NIAID Reserve</p>
+								<button mat-menu-item *ngFor="let obj of crs.related_unfunded" class="menu_button" data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( obj )">
+									<span>{{obj.crs_id + " - " + obj.crs_name | blacklistPipe}}{{$lpst ? '' : ''}}</span>
+								</button>
+						</mat-menu>
+					</div>
+				</div>
+				<!--CLOSES content!-->
+			</div>
+			<!-- CLOSES infobox!-->
+		</div>
+		<!-- CLOSES Network and CRS Info columns !-->
+
+		<!-- This row appears only on small screen sizes > 960px Start of Regulatory Card-->
+		<div fxLayout="row" fxLayoutAlign="space-around stretch" class="whiteframe" fxHide.lg fxHide.xl>
+			<div fxLayout="column" *ngIf="crs.regulatory && (crs.regulatory.regulatory_authority_name != null
+				|| crs.regulatory.local_irb_ec_name != null
+				|| crs.regulatory.local_irb_ec_name != null
+				|| crs.regulatory.other_irb_ec_name != null
+				|| crs.regulatory.established_ibc != null
+				|| crs.regulatory.ibc_name != null
+				|| crs.regulatory.cti_needed != null
+				|| crs.regulatory.language != null)" fxFlex>
+
+				<mat-toolbar class="profilebar" fxLayout="row wrap">
+					<h2>CRS Regulatory <span>Requirements <linkDirective directiveid="CRSrequirements" type="profile2" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective></span>
+					</h2>
+				</mat-toolbar>
+				<div class="md-item-text cards" >
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center"  *ngIf = "crs.country != 'United States'  && crs.regulatory && crs.regulatory.regulatory_authority_name != null ">
+						<h3 fxFlex="45">National Regulatory Authority(ies):</h3>
+						<div fxFlex>
+							<p *ngFor="let name of semicolonSplit(crs.regulatory.regulatory_authority_name)">{{ name }}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf = "crs.regulatory && crs.regulatory.local_irb_ec_name != null"></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.regulatory && crs.regulatory.local_irb_ec_name != null && crs.regulatory.local_irb_ec_name != ''">
+						<h3 fxFlex="45">Local Institutional Review Board/Ethics Committee Name:</h3>
+						<div fxFlex>
+							<p *ngFor="let name of semicolonSplit(crs.regulatory.local_irb_ec_name)">{{name}}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf="crs.regulatory.other_irb_ec_name"></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.regulatory.other_irb_ec_name != null && crs.regulatory.other_irb_ec_name != '' ">
+						<h3 fxFlex="45">Other Institutional Review Board/Ethics Committee Name:</h3>
+						<div fxFlex>
+							<p>{{crs.regulatory.other_irb_ec_name || ''}}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf="crs.regulatory.other_irb_ec_name != null && crs.regulatory.other_irb_ec_name != '' "></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.regulatory.established_ibc == 'Yes' && crs.regulatory.ibc_name !== null && crs.regulatory.ibc_name != '' ">
+						<h3 fxFlex="45">Institutional Biosafety Committee:</h3>
+						<div fxFlex>
+							<p>{{crs.regulatory.ibc_name || ''}}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf="crs.country != 'United States' && crs.regulatory.cti_needed != null"></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.country != 'United States' && crs.regulatory.cti_needed != null && crs.regulatory.cti_needed != '' ">
+						<h3 fxFlex="45">Clinical Trials Insurance Required:</h3>
+						<div fxFlex>
+							<p>{{crs.regulatory.cti_needed || ''}}</p>
+						</div>
+					</div>
+					<mat-divider *ngIf="crs.regulatory.language != null"></mat-divider>
+
+					<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.regulatory.language != null && crs.regulatory.language != ''">
+						<h3 fxFlex="45">Languages:</h3>
+						<div fxFlex>
+							<p align="left">{{crs.regulatory.language.split(", ").sort().join(", ") || ''}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of regulatory row -->
+
+		<!--Map Column-->
+		<div *ngIf="crs" fxLayout="column" fxLayoutAlign="space-evenly" id="profile-map" class="whiteframe">
+			<agm-map [latitude]="+crs.coords.latitude" [longitude]="+crs.coords.longitude" [styles]="styles" [zoom]="8">
+				<agm-marker 
+					[latitude]="+crs.coords.latitude"
+					[longitude]="+crs.coords.longitude"
+					[iconUrl]="marker">
+				</agm-marker>
+			</agm-map>
+			<div class="mapToast" fxLayout="row" fxLayoutAlign="center center">
+				<div><img src="{{legends(crs)}}" alt=""/>Main Clinic Location</div>
+			</div>
+		</div>
+	</div>
+	<!-- Start of Regulatory Card -->
+	<div class="profileColumn regulatory_requirements" fxLayout="row" fxLayoutAlign="space-around stretch" fxHide.sm fxHide.xs fxHide.md>
+		<div class="whiteframe" fxLayout="column" *ngIf="crs.regulatory && (crs.regulatory.regulatory_authority_name != null
+			|| crs.regulatory.local_irb_ec_name != null
+			|| crs.regulatory.other_irb_ec_name != null
+			|| crs.regulatory.established_ibc != null
+			|| crs.regulatory.ibc_name != null
+			|| crs.regulatory.cti_needed != null
+			|| crs.regulatory.language != null)" fxFlex>
+
+			<mat-toolbar class="profilebar" fxLayout="row wrap">
+				<h2>CRS Regulatory <span>Requirements <linkDirective directiveid="CRSrequirements" type="profile2" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective></span>
+				</h2>
+			</mat-toolbar>
+			<div class="md-item-text cards" >
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center"  *ngIf = "crs.country != 'United States' && crs.regulatory && crs.regulatory.regulatory_authority_name != null ">
+					<h3 fxFlex="45">National Regulatory Authority(ies):</h3>
+					<div fxFlex>
+						<p *ngFor="let name of semicolonSplit(crs.regulatory.regulatory_authority_name)">{{ name }}</p>
+					</div>
+				</div>
+				<mat-divider *ngIf = "crs.regulatory.local_irb_ec_name != null"></mat-divider>
+
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.regulatory.local_irb_ec_name != null && crs.regulatory.local_irb_ec_name != ''">
+					<h3 fxFlex="45">Local Institutional Review Board/Ethics Committee Name:</h3>
+					<div fxFlex>
+						<p *ngFor="let name of semicolonSplit(crs.regulatory.local_irb_ec_name)">{{name}}</p>
+					</div>
+				</div>
+				<mat-divider *ngIf="crs.regulatory.other_irb_ec_name"></mat-divider>
+
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.regulatory.other_irb_ec_name != null && crs.regulatory.other_irb_ec_name != '' ">
+					<h3 fxFlex="45">Other Institutional Review Board/Ethics Committee Name:</h3>
+					<div fxFlex>
+						<p>{{crs.regulatory.other_irb_ec_name || ''}}</p>
+					</div>
+				</div>
+				<mat-divider *ngIf="crs.regulatory.other_irb_ec_name != null && crs.regulatory.other_irb_ec_name != '' "></mat-divider>
+
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.regulatory.established_ibc == 'Yes' && crs.regulatory.ibc_name !== null && crs.regulatory.ibc_name != '' ">
+					<h3 fxFlex="45">Institutional Biosafety Committee:</h3>
+					<div fxFlex>
+						<p>{{crs.regulatory.ibc_name || ''}}</p>
+					</div>
+				</div>
+				<mat-divider *ngIf="crs.country != 'United States' && crs.regulatory.cti_needed != null"></mat-divider>
+
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="crs.country != 'United States' && crs.regulatory.cti_needed != null && crs.regulatory.cti_needed != '' ">
+					<h3 fxFlex="45">Clinical Trials Insurance Required:</h3>
+					<div fxFlex>
+						<p>{{crs.regulatory.cti_needed || ''}}</p>
+					</div>
+				</div>
+				<mat-divider *ngIf="crs.regulatory.language != null"></mat-divider>
+
+				<div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf = "crs.regulatory.language != null && crs.regulatory.language != ''">
+					<h3 fxFlex="45">Languages:</h3>
+					<div fxFlex>
+						<p align="left">{{crs.regulatory.language.split(", ").sort().join(", ") || ''}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end of regulatory row -->
+</div>
+<!-- end of cetner column -->
+<!--span spacer -->
+<!-- <span fxFlex="5"></span> -->

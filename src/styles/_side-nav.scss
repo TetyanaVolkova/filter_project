@@ -1,0 +1,1094 @@
+/**************************************
+*
+*Common Side Nav Elements
+*
+***************************************/
+
+//Base Nav Formatting
+.nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    button {
+        cursor: pointer;
+    }
+    li {
+        ul {
+            list-style-type: none;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            text-align: left;
+        }
+
+        button h4 {
+            text-align: left;
+        }
+    }
+}
+
+
+//Base Search Item Styles
+.search-button {
+    background-color: transparent;
+    border-radius: 0;
+    text-align: left;
+    line-height: 1.1em;
+    white-space: inherit !important;
+}
+
+.search-card md-card-content {
+    padding: 0;
+}
+
+.search-card:hover {
+    background: #E0E0E0;
+}
+.search-button.site-button.active-card {
+    background: $primary-accent;
+}
+
+
+//List Items in Left nav
+.menuItem {
+    padding: 0;
+    margin: 0;
+
+    button {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        white-space: nowrap;
+    }
+}
+
+
+//_____________________spaces between the left nav buttons
+.left {
+    margin-bottom: 1em;
+}
+
+.mat-select-content {
+    background: #5e5e5e !important;
+    color: #fff;
+}
+
+
+//__________________________________Left nav active colors
+.left:first-child .borderless {
+    background: $nav-colors-1;
+}
+.left:nth-child(2) .borderless {
+    background: $nav-colors-2;
+}
+.left:nth-child(3) .borderless {
+    background: $nav-colors-3;
+}
+.left:nth-child(4) .borderless {
+    background: $nav-colors-4;
+}
+.left:nth-child(5) .borderless {
+    background: $nav-colors-5;
+}
+.left:nth-child(6) .borderless {
+    background: $nav-colors-6;
+}
+
+// .options_span {
+// }
+
+.mat-option {
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 4s;
+    padding: 0 14px !important;
+}
+.options_span {
+    left: 0%;
+    width: 100%;
+    position: relative;
+    transition: 4s;
+}
+
+.options_span:hover {
+    // width: 100%;
+    left: calc(240px - 100%);
+    transition: 4s;
+}
+
+.mat-option-text:hover {
+    text-overflow: unset !important;
+    width: auto;
+    transition: 4s;
+}
+.mat-option-text {
+    display: inline-block;
+    transition: 4s;
+    overflow: unset !important;
+    text-overflow: ellipsis;
+}
+
+.hovered_option {
+    display: block;
+    white-space:nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    transition: .5s;
+}
+
+// Menu item left borders
+.left:first-child {
+    border-left: 7px solid $nav-colors-1;
+}
+.left:nth-child(2) {
+    border-left: 7px solid $nav-colors-2;
+}
+.left:nth-child(3) {
+    border-left: 7px solid $nav-colors-3;
+}
+.left:nth-child(4) {
+    border-left: 7px solid $nav-colors-4;
+}
+.left:nth-child(5) {
+    border-left: 7px solid $nav-colors-5;
+}
+.left:nth-child(6) {
+    border-left: 7px solid $nav-colors-6;
+}
+
+
+.leftf:first-child {
+    border-left: 7px solid $nav-colors-1;
+}
+.lefts {
+    border-left: 7px solid $nav-colors-2;
+}
+.leftp {
+    border-left: 7px solid $nav-colors-3;
+}
+.leftt {
+    border-left: 7px solid $nav-colors-4;
+}
+
+#moveFocus li {
+    margin: 0 0 8px 0;
+}
+
+//Styling for the main headings in the menu list
+.search-button.menu-item {
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    color: $nav-text;
+    text-transform: none;
+    width: 100%;
+    a.md-button {
+        display: flex;
+    }
+    h2 {
+        padding-left: .4rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    }
+}
+
+//Input elements
+input {
+    color: $nav-text;
+}
+
+md-autocomplete-wrap {
+    height: inherit !important;
+    color: $nav-text !important;
+    input {
+        height: inherit !important;
+    }
+}
+
+md-option[selected] {
+    color: $highlight-color !important;
+}
+  
+.search-box .mat-form-field-flex:after {
+    font-family: "Material Icons";
+    content: "\E8B6";
+    color: #ffffff;
+    background-color: #5e5e5e;
+    line-height: 1.8;
+    font-size: 36px;
+    width: 46px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.mat-chips .md-chip {
+    width: 270px;
+    color: $nav-text;
+    background-color: $primary-color;
+    margin-bottom: 20px;
+}
+
+md-chips.md-default-theme .md-chip.md-focused, md-chips .md-chip.md-focused {
+    background-color: $primary-accent;
+}
+md-chips.md-default-theme .md-chip.md-focused md-icon, md-chips .md-chip.md-focused md-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+mat-chip {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: inline-flex;
+    padding: 7px 12px;
+    border-radius: 24px;
+    align-items: center;
+    cursor: default;
+}
+
+.mat-chips .crs {
+    color: $nav-text;
+    background-color: $primary-accent;
+}
+
+.mat-chips .location {
+    color: $nav-text;
+    background-color: $nav-colors-3;
+}
+
+.mat-chips .epidemiology {
+    color: $nav-text;
+    background-color: $nav-colors-4;
+}
+
+.mat-chips .network {
+    color: $nav-text;
+    background-color: $nav-colors-1;
+}
+
+.mat-chips .unfundednetwork {
+    color: $nav-text;
+    background-color: $nav-colors-2;
+}
+
+.mat-chips .pis {
+    color: $nav-text;
+    background-color: $primary-accent;
+}
+
+.mat-chips .mat-chips {
+    box-shadow: 0 0 rgb(255, 255, 255);
+}
+
+//so bottom border of left nav md-chips does not change
+md-chips.md-default-theme, md-chips .mat-chips {
+    box-shadow: none;
+}
+
+.md-chip-remove {
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0;
+    position: relative;
+    i {
+        color: $primary-color;
+    }
+}
+
+.md-chip-remove:focus {
+    outline: none;
+}
+
+.md-chip-remove i:hover {
+    color: whitesmoke;
+}
+
+/**************************************
+*
+*Side Nav Left
+*
+***************************************/
+//Main left nav styles
+
+leftSidebarComponent, profileleftcomponent {
+    width: 304px;
+    display: flex;
+    flex: 1;
+    height: 100%;
+    background-color: $primary-color;
+    overflow: auto;
+}
+
+#left-nav {
+    z-index: 999;
+    color: $nav-text;
+    transition: 1s;
+    .mat-drawer {
+        background-color: $primary-color;
+    }
+}
+
+//so the PI placeholder text appears fully
+.md-chip-input-container {
+    height: 57px;
+    width: 100%;
+    margin: 0 !important;
+    input {
+        font-size: 18px;
+        font-weight: lighter;
+    }
+}
+
+.md-chip-input-container > md-autocomplete {
+    height: inherit !important;
+}
+
+//========for pop characteristics hover effects
+mat-select {
+    -webkit-transition: 0.25s ease-in;
+    -moz-transition: 0.25s ease-in;
+    -o-transition: 0.25s ease-in;
+    transition: 0.25s ease-in;
+}
+
+mat-select:hover {
+    background-color: $primary-accent;
+    -webkit-transition: 0.25s ease-out;
+    -moz-transition: 0.25s ease-out;
+    -o-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+}
+
+mat-select[aria-expanded='true'] {
+    background-color: $primary-accent;
+    -webkit-transition: 0.25s ease-out;
+    -moz-transition: 0.25s ease-out;
+    -o-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+}
+
+//so the underline under the mat-select child elements are not visible
+mat-select.md-default-theme, mat-select .mat-select-value {
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+/* new added to change Make drop-down text white */
+.mat-select-value {
+    color: $nav-text;
+}
+
+.mat-autocomplete-panel {
+    background: #444444;
+}
+.mat-option:focus:not(.mat-option-disabled), .mat-option:hover:not(.mat-option-disabled), .mat-option:focus {
+    background: #5e5e5e;
+}
+.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    color: #ffffff;
+}
+.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: #444444;
+}
+
+.mat-select-placeholder {
+    color: #ffffff;
+}
+
+.mat-select-value .mat-select-icon {
+    -webkit-transform: rotate(-90deg) scale(0.77, 0.77);
+    transform: rotate(-90deg) scale(0.77, 0.77);
+    -moz-transform: rotate(-90deg) scale(0.92, 0.92);
+    -ms-transform: rotate(-90deg) scale(0.90, 0.90);
+    margin: 0 5px;
+    padding-top: 0.2rem;
+    padding-right: 0.2rem;
+    width: auto;
+}
+
+.reserve-list-item {
+    color: $nav-text;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 2.3rem;
+}
+
+.reserve-list-item:hover {
+    background-color: $primary-accent;
+    -webkit-transition: 0.25s ease-out;
+    -moz-transition: 0.25s ease-out;
+    -o-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+}
+
+.reserve-list-item span {
+    padding-left: .7rem;
+}
+
+// Adjust height of md-list-item so background-color highlight on hover
+// takes up a similar amount of space as the mat-select items on hover
+.reserve-list md-list-item, md-list-item .md-list-item-inner {
+    min-height: 20px;
+    height: 33px;
+    margin-top: 2px;
+    padding-bottom: 2px;
+    padding-top: 1px;
+}
+
+.nav-item-disabled {
+    opacity: .2;
+}
+
+.nav-item-active {
+    color: #f3d36d;
+}
+
+.reserve-list:focus {
+    outline: none;
+}
+
+//Styling for arrow on the right of the left nav items
+.menu-arrow {
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lighten($primary-color, 10%);
+    i {
+        line-height: 100%;
+        //Rotation animations transition
+        transition: $base-transition;
+        transform-origin: 40% 50%;
+    }
+    i.open {
+        // Rotate the arrow 180 degrees on transition
+        transform: rotate(-180deg);
+        padding-left: .3em; //added
+    }
+}
+
+.cdk-overlay-pane {
+    height: 0px;
+}
+
+.mat-select-panel {
+    min-width: 14rem;
+    max-width: 14rem;
+    position: relative;
+    left: 300px !important;
+    background: rgba(0, 0, 0, 0.3);
+}
+.mat-autocomplete-panel.mat-autocomplete-visible {
+    width: 296px;
+    padding-right: 20px;
+}
+.mat-option.mat-active, .mat-option {
+    color: #ffffff;
+}
+.mat-option:hover, .mat-option:focus {
+    background: #6e6e6e;
+}
+#disclaimer-db {
+    z-index: 100;
+}
+md-backdrop.mat-select-backdrop {
+    z-index: 70;
+}
+.mat-select-menu-container {
+    z-index: 80;
+}
+.md-dialog-container {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.mat-select-menu-container.md-active {
+    min-width: 14rem !important;
+    max-height: 0;
+}
+
+//_____-----_____ styling for the autocomplete dropdown
+#right-nav {
+    width: 304px;
+    min-width: 304px;
+    min-height: inherit;
+    background-color: $primary-color;
+    overflow: auto;
+    transition: 1s;
+}
+
+.hide_right_nav, .close_left_nav {
+    width: 0px !important;
+    min-width: 0px !important;
+    transition: .4s;
+}
+
+.md-virtual-repeat-scroller {
+    height: 100%;
+    background-color: $primary-color;
+}
+.md-virtual-repeat-container .md-virtual-repeat-offsetter {
+    background-color: $primary-accent;
+}
+
+//____---___ for the highlighted option in the autocomplete
+.md-autocomplete-suggestions-container li.selected {
+    background-color: $primary-accent;
+}
+
+//hover on autocomplete
+.md-autocomplete-suggestions-container li:hover {
+    background-color: lighten($primary-accent, 10%);
+}
+
+//focus on autocomplete
+.md-autocomplete-suggestions-container li:focus {
+    background-color: lighten($primary-accent, 10%);
+}
+
+.md-chip-remove:focus {
+    background-color: lighten($primary-accent, 10%) !important;
+}
+
+.menu_button {
+    border: none;
+    outline: none;
+    &:hover {
+        background: rgba(0,0,0,.04);
+    }
+}
+
+//so the autocomplete text is white
+.md-autocomplete-suggestions li {
+    color: $nav-text;
+}
+
+//so the matching text in the autocomplete is yellow instead of clashing grey
+.md-autocomplete-suggestions-container li .highlight {
+    color: $highlight-color;
+}
+
+//------_____-----so the highlighted option in the left nav sub-sub menus are same color
+mat-select-menu md-option:focus:not([selected]):not([disabled]) {
+    background: $primary-accent;
+}
+
+mat-select:not([disabled]):focus .mat-select-value.mat-select-placeholder,
+mat-select:not([disabled]):focus .mat-select-value {
+    color: white;
+}
+mat-select:focus {
+    background-color: lighten($primary-accent, 10%) !important;
+}       
+//------_______-------so left nav sub-sub menus are same color scheme as site
+mat-select-menu > md-content, mat-select-menu md-optgroup,  mat-select-menu md-optgroup md-option {
+    background-color: $primary-accent;
+    color: $nav-text;
+}
+
+//________--------______Hover for left nav sub-sub menu --- might need to change -Moose
+md-option:hover {
+    background-color: lighten($primary-accent, 10%) !important;
+}
+md-option:focus { 
+    background-color: lighten($primary-accent, 10%) !important;
+}
+md-option .md-text {
+    text-overflow: initial;
+}
+
+//This the menu slide animations
+//Transitions max-height and clips items
+.slide {
+    transition: $menu-item-transition;
+    max-height: 100vh;
+    overflow-y: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    mat-select {
+        padding: 8px 0px;
+    }
+}
+.slide.ng-hide {
+    max-height: 0px;
+}
+//Seach buttons and chips
+
+.md-chip-remove-container button {
+    cursor: pointer;
+}
+
+.nav-subheader {
+    padding: 0;
+    margin: 0;
+    margin-top: 3rem;
+    text-align: center;
+    a {
+        text-decoration: none;
+        border-radius: 25px;
+        padding: .5rem;
+        color: $nav-text;
+        background-color: $primary-accent;
+        transform: scale(0);
+        transition: all .3s ease-in-out;
+    }
+    a:nth-child(2) {
+        margin-top: .5rem;
+    }
+}
+
+//Animation for showing and hiding chips
+.nav-subheader.show a {
+    transition: all .3s ease-in-out;
+    transform: scale(1);
+}
+
+.show {
+    cursor: pointer;
+}
+
+//Nav Viz and Total
+
+div .total {
+    margin: 0;
+    color: white;
+}
+.sub-text {
+    margin: 0;
+    padding-top: 0.5em;
+    color: white;
+    font-size: 0.83em;
+    font-weight: bold;
+}
+div .nav-viz {
+    padding-top: 3em;
+    margin-bottom: 12em;
+}
+.md-sidenav-left .search-button {
+    white-space: nowrap;
+}
+.md-sidenav-left {
+    width: 304px;
+}
+
+/**************************************
+*
+*Side Nav Left - Profile State
+*
+***************************************/
+
+.search-box {
+    padding-left: 0;
+    li {
+        padding-left: 12px;
+        margin-top: 16px;
+        display: flex;
+        background-color: #6b6a6a;
+    }
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label {
+    color: #ffffff;
+    font-size: 6px;
+}
+
+.mat-form-field-infix {
+    border-top: none;
+    margin: auto;
+}
+
+.mat-form-field-wrapper {
+    padding: 0;
+}
+
+.mat-form-field-underline {
+    display: none;
+}
+
+#magnifer-glass {
+    margin-left: 5px;
+    width: 44px;
+    height: 54px;
+}
+
+md-content.md-default-theme, md-content {
+    background: #f5f5f5;
+}
+
+.mat-card {
+    padding: 0 !important;
+}
+
+//Specific Menu Styles for profile menu
+.search-button.menu-item.profile-menu {
+    border: none;
+    display: flex;
+}
+
+//so the left nav highlights the color when active in the profile view
+.leftf .active {
+    background-color: $nav-colors-1 !important;
+}
+.lefts .active {
+    background-color: $nav-colors-2 !important;
+}
+.leftp .active {
+    background-color: $nav-colors-3 !important;
+}
+.leftt .active {
+    background-color: $nav-colors-4 !important;
+}
+
+.profile-menu.search-button.menu-item.active::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 8px;
+    height: 8px;
+    content: '';
+}
+
+.mat-tooltip {
+    width: 100px !important;
+    margin-top: 24px !important;
+    background: rgb(51, 51, 51);
+    border-radius: 20%;
+}
+
+.mat-input-placeholder {
+    color: #ffffff;
+    font-size: 18px !important;
+    font-weight: lighter !important;
+    font-family: Roboto, sans-serif !important;
+}
+
+.mat-input-element {
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.mat-pseudo-checkbox {
+    display: none !important;
+    border: none !important;
+}
+
+.mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+    background: #5e5e5e;
+}
+
+.filter-chip {
+    .mat-chips {
+        mat-chip {
+            margin: 8px 8px 0 0;
+            padding: 0 6px;
+            width: 5rem;
+            .md-chip-content {
+                white-space: nowrap;
+                max-width: 70px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-family: Roboto,Helvetica Neue,sans-serif;
+                font-size: 16px;
+            }
+        }
+    }
+    md-chips-wrap {
+        padding-bottom: 0;
+    }
+    .md-chip-remove-container i {
+        color: white;
+    }
+    .md-chip-remove-container i:hover {
+        color: #444444;
+    }
+}
+
+//so the placeholder text in CRS and PI matches site colors - this changes ALL input placeholders
+input::-webkit-input-placeholder {
+    color: $nav-text;
+}
+
+/**************************************
+*
+*Side Nav Right
+*
+***************************************/
+//Search Card Base Style
+
+.h5Header {
+    margin: 0.3em 0;
+    display: block;
+    font-size: .85rem;
+    font-weight: bold;
+    line-height: 1.1;
+}
+.search-card {
+    opacity: 1;
+    margin-bottom: .2rem;
+}
+.funded-networks {
+    color: $nav-text;
+    font-style: italic;
+}
+.search-button.site-button {
+    border: 0;
+    cursor: pointer;
+    padding-left: .5em;
+    background-color: $primary-color;
+    color: $nav-text;
+    min-height: 3rem;
+    width: 100%;
+    .pi {
+        color: $nav-text;
+        font-size: 0.8rem;
+        margin-top: .2em;
+        margin-bottom: .2em;
+    }
+}
+
+.navs_are_closed {
+    display: none !important;
+}
+
+.left_toggle {
+    padding: 0 20px;
+    font-size: 25px;
+}
+
+.top-right-number {
+    color: $nav-text;
+    background-color: $primary-color;
+    h6 {
+        position: relative;
+        padding-right: .3rem;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+    }
+}
+//Colors for Funding Status
+.search-card.Red {
+    border-left: 0.4rem solid $funded-color;
+}
+.search-card.Pink {
+    border-left: 0.4rem solid $unfunded-color;
+}
+.card-actions.Red {
+    background-color: $funded-color;
+}
+.card-actions.Pink {
+    background-color: $unfunded-color;
+}
+
+
+/**************************************
+*
+*Side Nav Right - Favorites
+*
+***************************************/
+
+
+//for clear favorites icon placement
+#bluefab {
+    min-height: 52px;
+    background-color: $primary-color;
+}
+
+.bluefab .text-capitalize {
+    text-transform: capitalize;
+}
+
+.bluefab .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+    background-color: $nav-colors-3 !important;
+}
+
+.bluefab p.note {
+    font-size: 1.2rem;
+}
+
+.bluefab .lock-size {
+    min-width: 300px;
+    min-height: 300px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.md-button.md-fab {
+    height: 2rem;
+    width: 2rem;
+    bottom: 0rem;
+    left: 0rem;
+}
+
+#bluefab .md-button.md-fab.show {
+    bottom: 0rem;
+    left: 0rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-left: 150px;
+}
+.bluefab .md-button.md-warn.md-fab {
+    position: relative;
+    bottom: 27px;
+    background-color: $nih-color !important;
+    margin-left: 200px;
+}
+
+.favorite-info-container {
+    height: 3em;
+}
+
+.favorite-export {
+    background-color: $nav-colors-3 !important;
+}
+
+.clearFavorites {
+    padding: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5em;
+    text-align: center;
+    a {
+        text-decoration: none;
+        border-radius: 25px;
+        padding: .5rem;
+        color: $nav-text;
+        background-color: $primary-color;
+        transform: scale(0);
+        transition: all .3s ease-in-out;
+    }
+    a:nth-child(2) {
+        margin-top: .5rem;
+    }
+
+}
+.clearFavorites.show a {
+    transition: all .3s ease-in-out;
+    transform: scale(1);
+
+}
+.clearFavorites.show a {
+    transition: all .3s ease-in-out;
+    transform: scale(1);
+}
+
+.noFavorite {
+    height: 6em;
+    text-align: center; // center horizontally
+    font-weight: bold;
+    line-height: 6em; // to center vertically
+}
+
+
+.noFavorite {
+    color: $nav-text;
+    font-size: 0.83em;
+    height: 6em;
+    text-align: center; // center horizontally
+    font-weight: bold;
+    line-height: 6em; // to center vertically
+}
+
+
+
+/**************************************
+*
+*Side Nav Animations
+*
+***************************************/
+
+
+//Card Action when in hover state
+.card-actions {
+    position: relative;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    z-index: 99;
+    -webkit-transition: 0.1s ease-in-out 0.2s;
+    transition: 0.1s ease-in-out 0.2s;
+    i {
+        color: white;
+        vertical-align: center;
+    }
+}
+
+.search-card {
+    &:hover .card-actions {
+        padding-right: .4rem;
+        width: 1.5rem;
+        visibility: visible;
+    }
+}
+
+.search-card:focus .card-actions {
+    padding-right: .4rem;
+    width: 1.5rem;
+    visibility: visible;
+}
+
+.search-card a:focus {
+    text-decoration: none;
+    vertical-align: middle;
+    display: flex;
+    visibility: visible;
+    i {
+        margin: auto;
+    }
+}
+
+/* card selection section */
+
+.search-card.site, .search-card.favorite {
+    -webkit-transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
+}
+
+.search-card.ng-hide {
+    -webkit-transform: translate(350px, 0);
+    transform: translate(350px, 0);
+    opacity: 0;
+}
+
+.search-card.ng-enter,ng-enter-active {
+    -webkit-transform: translate(350px, 0);
+    transform: translate(350px, 0);
+}
+
+.search-card.ng-leave.ng-leave-active {
+    -webkit-transform: translate(-350px, 0);
+    transform: translate(-350px, 0);
+}
+
+md-autocomplete-parent-scope > div {
+    overflow: hidden;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.mat-select-value *:first-child {
+    flex: 1 1 auto;
+}

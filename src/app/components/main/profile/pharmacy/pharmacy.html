@@ -1,0 +1,106 @@
+<div class="lab_Container">
+
+  <div tabindex="-1" id="pharmsCRScontent" class="main-content" fxLayout="row">
+  <!-- span spacer -->
+
+  <!--center column start -->
+    <div fxLayout="column" fxLayoutAlign="space-around" fxFlex class="center-col profileColumn">
+      <h1 tabindex="0" class="crs-title" fxLayoutAlign="center center">{{(crs.crs_id + ' - ' + crs.crs_name) | blacklistPipe}}
+      </h1>
+      <p class="no-profile-data" *ngIf="crs.pharmacies.length === 0">No Pharmacy data available.</p>
+      <div *ngIf="crs.pharmacies.length">
+        <mat-tab-group class="label pharmacy_tabs">
+          <div>
+            <mat-tab label="Pharmacy {{i + 1}}" *ngFor="let phar of crs.pharmacies; index as i">
+              <div class="content-container">
+    <!-- Column For Cards -->
+                <div class="lab_cards" fxLayout="column" fxLayoutAlign="space-between">
+    <!--Phar Info Card!-->
+                  <div class="whiteframe" fxLayout="column" fxLayoutAlign="center">
+                    <mat-toolbar class="profilebar" fxLayout="row">
+                      <h2>Pharmacy Information <linkDirective directiveid="PharInformation" type="phar1" imgurl="images/ic_help_white_18dp_2x.png"  alt="Click for more information"></linkDirective>
+                      </h2>
+                    </mat-toolbar>
+
+                    <div class="md-item-text cards" *ngIf="phar.phar_name != null">
+                      <div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center">
+                        <h3 fxFlex="40">Name:</h3>
+                        <p fxFlex>{{phar.phar_name}} </p>
+                      </div>
+                      <mat-divider *ngIf="phar.phar_id != null && phar.phar_id != '' "></mat-divider>
+
+                      <div class="cardrow address" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="phar.phar_id != null && phar.phar_id != '' ">
+                        <h3 fxFlex="40">ID#:</h3>
+                          <p class= "addRow md-item-text" fxFlex>{{phar.phar_id}}</p>
+                      </div>
+                      <mat-divider *ngIf="phar.networks != null && phar.networks != '' && crs.crs_type != 'unfunded' "></mat-divider>
+
+                      <div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="phar.networks != null && phar.networks != '' && crs.crs_type != 'unfunded' ">
+                        <h3 fxFlex="40">Network Affiliation(s):</h3>
+                        <p fxFlex>{{phar.networks.split(',').join(", ")}}</p>
+                      </div>
+                      <mat-divider *ngIf="phar.PoR_name != null && phar.PoR_name != '' "></mat-divider>
+
+                      <div class="cardrow address" *ngIf="phar.PoR_name != null && phar.PoR_name != '' " fxLayout="row" fxLayoutAlign="space-around center">
+                        <h3 fxFlex="40">PoR:</h3>
+                					<p fxFlex>{{phar.PoR_name}}
+	                			<button class="md-icon-button md-primary"  aria-label="Contact Principal Investigator's email address'" *ngIf = "crs.ocsostaff != null && crs.ocsostaff.email != null && crs.ocsostaff.email != '' ">
+	                  				<a href="mailto:{{crs.ocsostaff.email}}" alt="Email" aria-label="email" title ="email">
+	                    				<mat-icon matTooltip="Email PoR" svgIcon="ic_email" id="emailbtn" alt="Email PO"></mat-icon>
+	                  				</a>
+	                			</button></p>
+                      </div>
+                      <mat-divider *ngIf="phar.related_phar != 0 "></mat-divider>
+
+                      <div *ngIf="phar.related_phar != 0 ">
+                        <div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="phar.related_phar!= null && phar.related_phar != '' ">
+                          <h3 fxFlex="40">Related CRS(s):</h3>
+                          <button mat-icon-button [matMenuTriggerFor]="appMenu" class="CTU_menu_button phar-icon" aria-label="Open Related Sites menu">
+                            <mat-icon class="material-icons CrsCtuIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+                          </button>
+                          <mat-menu #appMenu="matMenu" fxFlex>
+                            <div id="rel-sites-menu" >
+
+                              <!-- FUNDED RELATED SITES -->
+                              <p id="fundedmenu" *ngIf="(phar.related_phar | fundedPipe).length">Network Affiliation(s)</p>
+                              <button mat-menu-item md-no-ink data-ng-keydown="closeOnTab( $event )" *ngFor="let obj of phar.related_phar | fundedPipe">
+                                <span>{{obj.crs_id + " - " + obj.crs_name | blacklistPipe}}{{$lpst ? '' : ''}}</span>
+                              </button>
+
+                            <!-- UNFUNDED RELATED Sites -->
+                              <p id="ufmenu" *ngIf="(phar.related_phar | unfundedPipe).length">Network Reserve</p>
+                              <button mat-menu-item md-no-ink data-ng-keydown="closeOnTab( $event )" *ngFor="let obj of phar.related_phar | unfundedPipe">
+                                <span>{{obj.crs_id + " - " + obj.crs_name}}{{$lpst ? '' : ''}}</span>
+                              </button>
+                            </div>
+                          </mat-menu>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            <!-- Card for Capability -->
+                  <div class="profilebox tests_performed whiteframe" fxLayout="column" fxLayoutAlign="center" *ngIf="phar.pharmacy_capability !== null">
+                    <mat-toolbar class="profilebar" fxLayout="row">
+                      <h2>Pharmacy Capability <linkDirective directiveid="pharmCapability" type="phar2" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective>
+                      </h2>
+                    </mat-toolbar>
+
+                    <div class="testcol" fxLayout="row wrap" fxLayoutAlign="start center">
+                      <div fxFlex="50" fxFlex.lg="33" fxFlex.sm="100" *ngFor="let name of phar.pharmacy_capability.split(',')">
+                        <span>{{name}}</span>
+                      </div>
+                    </div>
+                  </div> <!--Closes Card for Capability -->
+
+                </div> <!--Closes Info Card -->
+
+              </div>
+            </mat-tab>
+          </div>
+        </mat-tab-group>
+      </div>
+    </div>
+    <!-- span spacer -->
+  </div>
+</div>

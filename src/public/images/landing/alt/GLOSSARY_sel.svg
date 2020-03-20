@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="246px" height="246px" viewBox="0 0 246 246" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <!-- <title>Glossary</title> -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1GLOSSARY_sel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GLOSSARY_sel" transform="translate(8.000000, 8.000000)">
+            <g id="Glossary-grey" transform="translate(0.000000, 0.000000)">
+                <circle id="Oval-17" stroke="#9B9AAF" stroke-width="16" fill="#2A5581" fill-rule="nonzero" cx="115" cy="115" r="115"></circle>
+                <circle id="Oval-20" stroke="#FFFDFD" stroke-width="3" cx="114.361111" cy="114.361111" r="107.972222"></circle>
+                <g id="Oval-5-+-Rectangle-3" transform="translate(63.888889, 47.277778)" fill-rule="nonzero">
+                    <ellipse id="Oval-5h67" stroke="#FFFFFF" stroke-width="12.1000004" fill-opacity="0" fill="#FFFFFF" cx="40.2002165" cy="40.0917431" rx="40.2002165" ry="40.0917431"></ellipse>
+                    <circle id="Oval-5-Copy" fill-opacity="0" fill="#00334C" cx="38.9722222" cy="38.9722222" r="23.6388889"></circle>
+                    <rect id="Rectangle-9" fill="#FFFFFF" transform="translate(76.056378, 110.123315) rotate(-30.000000) translate(-76.056378, -110.123315) " x="65.477374" y="63.4878087" width="21.1580087" height="93.2710122" rx="8.2792208"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

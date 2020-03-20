@@ -1,0 +1,236 @@
+/***********************************************************************
+*                                 MULTIPLE                            *
+***********************************************************************/
+
+.excelbtn md-icon md-dialog {
+  background-color: red;
+}
+
+// DIALOG BOXES
+.exceldb,
+.filterdb,
+#impaact_db {
+  mat-toolbar {
+    border: none;
+    background-color: #9e9e9e;
+
+  }
+}
+.export_excel {
+  min-width: 40%;
+}
+md-dialog-content .definition {
+  font-size: 1.08vw;
+}
+
+.filterdb,
+.nofavs {
+  min-width: 20rem;
+  text-align: center;
+}
+
+.mat-dialog-content {
+  display: block !important;
+  max-height: 65vh !important;
+  margin: 0 !important;
+}
+
+.mat-dialog-container {
+  height: initial !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  top: -210px;
+  position: relative;
+  max-height: 100vh;
+  overflow: hidden !important;
+}
+
+mat-list.disabled{
+  cursor: not-allowed !important;
+  opacity: 0.5;
+  text-decoration: none;
+  z-index: -1;
+}
+
+#leaving_dialog_buttons {
+  margin: 0;
+}
+
+.alert {
+  border: none;
+  background-color: #9e9e9e;
+  margin: 0;
+  i {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+}
+
+/***********************************************************************
+*                                   MAP                               *
+***********************************************************************/
+#mapkey {
+  background-color: $primary-color;
+  height: 2.1rem;
+  width: 13.5rem;
+  position: absolute;
+  right: 0;
+  top: 0rem;
+  div {
+    color: white;
+    padding: 4% 0.5rem 0 0.5rem;
+    font-size: 0.7rem;
+    img {
+      height: 1.1rem !important;
+      width: 1.1rem !important;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+}
+
+/************************************************************************
+*                                   D3                                 *
+************************************************************************/
+md-icon:focus {
+  outline: 0;
+} // no outline after icons are clicked
+
+/*style for data summary viz container*/
+.data-viz-container {
+  height: 100%;
+  /* Background over map: */
+  background: #FFFFFF;
+  overflow-y: hidden;
+}
+
+/*CSS for D3 barpie*/
+barpie {
+  width: 98%;
+  margin: 1rem auto;
+}
+
+path:hover {
+  opacity: 0.9;
+}
+rect:hover {  opacity:0.7; }
+
+.y.axis g line {
+  stroke: #000000;
+  stroke-width: .5vw;
+  transform: rotate(90deg);
+}
+
+.y.axis g:first-child {
+  line {
+    stroke-width: 0;
+  }
+}
+
+.pC {
+  margin-left: 25%;
+}
+.legend {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  border-collapse: collapse;
+  border-spacing: 0rem;
+  position: relative;
+  bottom: 0rem;
+  margin-left: 46.5rem;
+}
+.legend td {
+  padding: 0.5rem 0.3rem;
+  font-size: 0.5vw;
+}
+.legendFreq,
+.legendPerc {
+  text-align: right;
+  width: 2rem;
+}
+
+.grid {
+  stroke: #ffffff;
+  opacity: 0.2;
+  stroke-width: 1;
+}
+
+.tick text {
+  font: Roboto;
+  font-size: 0.8vw;
+  color: black;
+  background-color: white;
+}
+
+/*bottom tabs*/
+#d3desc {
+  u {
+    font-size: 1.1vw;
+    font-weight: bold;
+  }
+  #blue {
+    color: #0088cc;
+    font-size: 1.4vmin;
+    font-weight: bold;
+  }
+  strong {
+    font-size: 1.6vmin;
+  }
+}
+
+/*buttons*/
+.redfab .md-button.md-fab.md-mini {
+  line-height: 3vw;
+  width: 3vw;
+  height: 3vw;
+  min-height: 0.5vw;
+}
+
+.redfab md-icon {
+  height: 1.6vw;
+  width: 1.6vw;
+}
+
+#redfab {
+  position: absolute;
+  margin-top: -4.5%;
+  margin-bottom: -1.5vw;
+}
+
+/* Try to change the icon background color*/
+.redfab a.md-button.md-raised {
+  background-color: #f77d74;
+}
+
+.exceldb .md-raised {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  border: none;
+  min-width: 88px;
+  align-items: center;
+  padding: 0 6px;
+  margin: 6px 8px;
+  line-height: 36px;
+  min-height: 36px;
+  border-radius: 3px;
+}
+
+// for 508 compliance for axe reports
+.xLabel, .yAxisText {
+    color: black !important;
+    background-color: white;
+}
+
+/* ng-cloak */
+[ng-cloak] {
+  display: none !important;
+}
+
+.mat-tooltip {
+  text-align: center;
+  padding: 4px;
+  border-radius: 10% !important;
+  font-size: 14px;
+}

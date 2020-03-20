@@ -1,0 +1,455 @@
+// ****************************************************************
+// *******************    SPLASH PAGE   ***************************
+// ****************************************************************
+
+landing-nav-component {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.panel-name {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#panel_about, #panel_tut, #panel_gls, #panel_dis {
+    color: $primary-color;
+    background-color: #F5F5F5;
+}
+
+#iconcol #navigation {
+    flex: 35;
+    padding-top: 8px;
+    a, button {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border: 2px solid transparent;
+    }
+}
+
+#navigation button:focus{
+    border: 2px solid #326496 !important;
+}
+
+#iconcol {
+    background: #444444;
+    min-height: 64px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    .landing {
+        flex: 65;
+    }
+    svg {
+        height: 52px;
+    }
+    div {
+        text-align: left;
+        flex: 1;
+        b {
+            font-size: 2vh;
+        }
+        p {
+            margin-top: 0;
+        }
+        #gloss {
+            margin-bottom: 0;
+        }
+    }
+    mat-icon {
+        min-width: 55px;
+        min-height: 55px;
+    }
+    .md-button.md-fab {
+        line-height: 5.6rem;
+        min-width: 0;
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+    }
+}
+
+.btn-text {
+    color: #326297;
+}
+
+.landing-title-container {
+    margin-top: .8%;
+    margin-left: 50%;
+    margin-right: 5%;
+    font-size: .7vw;
+    color: white;
+    line-height: 1em;
+    background-color:#00324C ; 
+}
+
+.landing_view {
+    margin: 16px auto;
+}
+
+welcomecomponent, glossarycomponent, about, tutorialcomponent, contactus {
+    overflow: auto;
+    flex: 1;
+    display: flex;
+    background: #F5F5F5;
+    height: 100%;
+}
+.landing-title {
+    font-size: 3vw;
+}
+
+.landing-subtitle {
+    line-height: 1.3em;
+}
+
+// so splash logo is same as main logo
+
+.splash-title  {
+    margin-left: 0.8em;
+    > button {
+        background: transparent;
+        border: none;
+    }
+}
+
+@keyframes landingIcons {
+    from {opacity: .1;}
+    to {opacity: 1;}
+  }
+  
+  #iconcol  .active_landing svg {
+    animation-name: landingIcons;
+    animation-duration: 2s;
+  }
+
+// FOOTER
+
+headercomponent, footerComponent {
+    background: #444444;
+    // height: 68px;
+    flex-direction: column;
+}
+#landing-footer {
+    height: 100%;
+    padding: 0.2rem 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: .8rem;
+    color: white;
+    p {
+        text-align: center;
+        margin: 0;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+
+    }
+    div {
+        color: #cbcbcb;
+        font-size: .9rem;
+    }
+}
+
+.big-footer {
+    li {
+        border-right: 1px solid white;
+        a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 0px 16px;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.big-footer li:last-child {
+    border: none;
+ }
+// For footer on small screens
+.small-footer {
+    width: 100%;
+    .left-col {
+        a {
+            text-align: left;
+            padding: 5px 16px;
+            color: white;
+        }
+    }
+    .right-col {
+        a {
+            text-align: right;
+            padding: 5px 16px;
+            color: white;
+        }
+    }
+}
+
+// From landing.html for ui-views
+#splash_content {
+    background: url('/images/landing/Map.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #00324C;
+    overflow: hidden;
+    .content {
+        overflow: auto;
+        display: flex;
+    }
+}
+
+// ****************************************************************
+// *********************      About       *************************
+// ****************************************************************
+
+#about_divider {
+    width: 100%;
+    hr {
+        width: 100%;
+        color: $primary-accent;
+    }
+}
+#logo_row {
+    margin-top: 0.5rem;
+    height: 100%;
+    width: 100%;
+    img {
+        height: 6vh;
+        width: 9.8vw;
+        padding: 1vh;
+        border-radius: 7px;
+        background-color: white;
+        .extended {
+            margin: 0 5px;
+        }
+    }
+}
+
+.close_button{
+    min-width: 35px !important;
+    border-radius: 50% !important;
+    margin-right: 14px !important;
+}
+
+#network_logos {
+    margin: auto;
+    align-items: center;
+}
+#hanc_row {
+    width: 100%;
+    a {
+        width: 100%;
+        text-align: center;
+    }
+    img {
+        background-color: white;
+        height: 6vh;
+        width: 9.8vw;
+        border-radius: 7px;
+        padding: 1vh;
+    }
+    p {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#tutorial_video {
+    width: 70%;
+}
+
+#panel_about_text {
+    p#contract_id {
+        padding: 14px;
+        text-align: center;
+        font-size: 16px;
+        display: block;
+        width: 100%;
+    }
+    h2 {
+        margin-top: 0;
+    }
+}
+
+
+
+#panel_about {
+    color: $primary-color;
+     p {
+        padding: 11px 0;
+        font-weight: 500;
+        font-size: 1.17em;
+    }
+}
+
+#panel_about_text.ng-hide-remove {
+    -webkit-animation: slideInRight 0.5s;
+    animation: slideInRight 0.5s;
+}
+
+.md-whiteframe-7dp, .md-whiteframe-z3 {
+    -webkit-box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+    padding: 0;
+    border-radius: 7px;
+}
+
+.hptn_logo {
+    color: $nih-color;
+    a {
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+            &:visited {
+                color: $nih-color !important;
+            }
+        }
+    }
+}
+
+// ****************************************************************
+// *******************      Disclaimer     ************************
+// ****************************************************************
+
+#panel_dis_text.ng-hide-remove {
+    -webkit-animation: slideInRight 0.5s;
+    animation: slideInRight 0.5s;
+}
+
+// ****************************************************************
+// *******************      Tutorial       ************************
+// ****************************************************************
+
+#pdficon {
+    color: white;
+    margin-left: 5px;
+    height: 18px;
+    width: 18px;
+    vertical-align: text-bottom;
+}
+
+#video_wrapper {
+    text-align: center;
+}
+
+#pdfHolder {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+#pdfLink {
+    text-align: center;
+    color: #0b00c8;
+}
+
+// ****************************************************************
+// *******************      Glossary       ************************
+// ****************************************************************
+
+.gls_anchors {
+    margin: 5px;
+}
+
+.definitions a {
+    text-decoration: underline !important;
+}
+
+.hrefgroup {
+    a {
+        color: #0b00c8;
+        &:active {
+            color: $nih-color;
+        }
+        &:hover {
+            color: $nih-color;
+        }
+    }
+}
+
+#toTop {
+    position: fixed;
+    bottom: 16%;
+    right: 4%;
+    cursor: pointer;
+    color: #326297;
+    background-color: #ffffff;
+    border: 3px solid #326297;
+    border-radius: 8px;
+    padding: 7px 5px;
+    font-size: 14px;
+    text-decoration: none;
+}
+#toTop:focus {
+    background: #cccccc !important;
+}
+
+#panel_gls_text.ng-hide-remove {
+    -webkit-animation: slideInRight 0.5s;
+    animation: slideInRight 0.5s;
+}
+
+@-webkit-keyframes slideInRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slideOutRight {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}

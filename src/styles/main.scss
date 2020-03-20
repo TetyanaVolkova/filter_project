@@ -1,0 +1,23 @@
+
+/**************************************
+* VARIABLES
+***************************************/
+@import 'variables';
+
+/**************************************
+* CSS IMPORTS
+***************************************/
+@import '~font-awesome/scss/font-awesome';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/**************************************
+* Import Partials
+***************************************/
+@import 'loading';
+@import 'app';
+@import 'style';
+@import 'map-styles';
+@import 'side-nav';
+@import 'profile';
+@import 'animations';
+@import 'splash';
+@import 'mediaQueries';

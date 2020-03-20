@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="206px" height="198px" viewBox="0 0 206 198" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>Disclamer</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Disclamer-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Disclamer" sketch:type="MSArtboardGroup">
+            <circle id="Oval-3" stroke="#FFFFFF" stroke-width="13" sketch:type="MSShapeGroup" cx="102.5" cy="99.5" r="91.5"></circle>
+            <path d="M88,34 C88,34 85,27 102.5,27 C120,27 117,34 117,34 L112,134 L93,134 L88,34 Z" id="Rectangle-1" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            <circle id="Oval-4" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="102.5" cy="156.5" r="14.5"></circle>
+        </g>
+    </g>
+</svg>

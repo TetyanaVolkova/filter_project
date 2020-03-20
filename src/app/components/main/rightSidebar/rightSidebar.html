@@ -1,0 +1,43 @@
+<!-- sites cards -->
+<div layout-fill *ngIf="lockRight" fxLayout="column">
+    <mat-card tabindex="0" class="search-card {{crs.color}}" [ngClass]="{site: !showFavorite}" *ngFor="let crs of crss" (focus)="selectSite( crs )" (mouseover)="selectSite( crs )" (mouseout)="clearSelectedSite()" fxLayout="row">
+        <div class="card-actions {{crs.color}}" fxLayout="column">
+            <a tabindex="0" (click)="altFavorite(crs)">
+                <i matTooltip="Add to Favorites" class="fa fa-star-o" *ngIf="favoriteCrs.indexOf(crs) <= -1" alt="Favorite"></i>
+                <i class="fa fa-star" *ngIf="favoriteCrs.indexOf(crs) > -1" alt="Favorite">
+                </i>
+            </a>
+        </div>
+        <button class="search-button site-button" (click)="changefocus(crs)" [ngClass]="{'active-card': crs===crs}" id="site{{ crs.crs_name }}" fxLayout="column">
+            <div class="h5Header site-name" *ngIf="crs.crs_name">{{crs.crs_name}}</div>
+            <div style="position:absolute !important; clip: rect(1px 1px 1px 1px);">{{crs.color === "Red"? "Site status: active" : "Site status: NIAID reserved"}}</div>
+            <div class="h5Header funded-networks" *ngIf="crs.fundednetwork">{{crs.fundednetwork.network}}</div>
+        </button>
+    </mat-card>
+</div>
+<!-- favorites cards-->
+<div layout-fill *ngIf="showFavorite" fxLayout="column">
+    <mat-card tabindex="0" class="search-card {{crs.color}}" [ngClass]="{favorite: showFavorite}" *ngFor="let crs of favoriteCrs" (focus)="selectSite( crs )" (mouseover)="selectSite( crs )" (mouseout)="clearSelectedSite()" fxLayout="row">
+        <div class="card-actions {{crs.color}}">
+            <a tabindex="0" (click)="altFavorite(crs)">
+                <i class="fa fa-star" alt="Favorite"></i>
+            </a>
+        </div>
+        <button class="search-button site-button" (click)="changefocus(crs)" [ngClass]="{'active-card': crs===crs}" id="site{{ crs.crs_name }}" fxLayout="column">
+            <div class ="h5Header">
+                <div *ngIf="crs.crs_name" class="site-name">{{crs.crs_name}}</div>
+                <div *ngIf="crs.fundednetwork" class="funded-networks">{{crs.fundednetwork.network}}</div>
+            </div>
+        </button>
+    </mat-card>
+    <div class="noFavorite" *ngIf="showFavorite && favoriteCrs.length == 0">
+        No favorites have been added.
+    </div>
+</div>
+<div fxLayout="row" layout-align="space-around start" *ngIf="showFavorite && favoriteCrs.length > 0" id="bluefab">
+    <div class="bluefab" >
+        <button mat-icon-button matTooltip="Clear Favorites" aria-label="Clear favorites" class="md-fab md-warn md-raised md-mini favorite-export" (click)="resetFavorite()">
+            <mat-icon svgIcon="TRASH" id="emailbtn" alt="Trash" aria-label="clear"></mat-icon>
+        </button>
+    </div>
+</div>

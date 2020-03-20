@@ -1,0 +1,39 @@
+/***********************************************************************/
+
+/*                                 Colors                              */
+
+/***********************************************************************/
+$primary-color: #444444;
+$primary-accent: lighten($primary-color, 10%);
+$nih-color: #326496;
+$accent-color: #3679b3;
+$nav-text: #ffffff;
+$nav-colors-1: #000066;
+$nav-colors-2: #1D1DFF;
+$nav-colors-3: #607d4a;
+$nav-colors-4: #326496;
+$nav-colors-5: #1D1DFF;
+$nav-colors-6: #ab799d;
+$nav-colors-7: #8fcde3;
+$funded-color: $nav-colors-1;
+$unfunded-color: $nav-colors-2;
+$ps-color: $funded-color;
+$highlight-color: #F4D36D;
+$divider-grey: #979797;
+
+/***********************************************************************/
+
+/*                                 Animations                          */
+
+/***********************************************************************/
+$duration: 0.5s;
+$easing: ease-in-out;
+$base-transition: all $duration $easing;
+$menu-item-transition: max-height $duration $easing;
+
+/***********************************************************************/
+
+/*                                 FontAwesome                          */
+
+/***********************************************************************/
+$fa-font-path: '~font-awesome/fonts';

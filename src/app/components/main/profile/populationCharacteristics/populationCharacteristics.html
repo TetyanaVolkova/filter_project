@@ -1,0 +1,96 @@
+<div tabindex="-1" fxLayout="column" id="epiCRScontent" class="epi_Container">
+  <h1 tabindex="0" class="crs-title">{{crs.crs_id + ' - ' + crs.crs_name | blacklistPipe}}</h1>
+  <p class="no-profile-data" *ngIf="crs.crspopulations.length === 0">No Population Characteristics data available.</p>
+  <div id="epi-main-content" fxLayoutAlign="space-evenly" fxLayout="column" fxLayout.gt-md="row" *ngIf="crs.crspopulations.length">
+    
+    <fieldset fxLayout="column" fxLayoutAlign="space-between stretch" class="demogs whiteframe7">
+      <legend>Demographic:</legend>
+      <div fxLayout="row" fxLayoutAlign="space-around center" class="epi_col_title">
+        <h2 class="i485">Demographic</h2>
+        <button [matMenuTriggerFor]="appMenu1" class="md-icon-button drop_down CTU_menu_button" aria-label="Open menu">
+          <mat-icon class="material-icons epiIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+        </button>
+        <mat-menu #appMenu1="matMenu" fxFlex>
+
+              <button mat-menu-item [ngClass]="reported[0] ? 'active_characteristics' : '' " class="epi-manu-item" id="site1" md-menu-focus-target data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( $event, 0, 0 )">Site Reported Characteristics</button>
+
+            
+              <button mat-menu-item  id="potential1" data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( $event, 0, 1 )" [ngClass]="!reported[0] ? 'active_characteristics' : '' " class="epi-manu-item">
+                All Potential Characteristics
+                </button>
+        
+        </mat-menu>
+      </div>
+      <h3 class="title_string gender">Gender</h3>
+      <div *ngFor="let item of Gender" [ngClass]="{'checked': !checkItem(item, crsGender)}">
+        <div *ngIf="reported[0] ? checkItem(item, crsGender) : true">
+          {{ item }}
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+
+      <h3 class="title_string age">Age</h3>
+      <div *ngFor="let item of Age" [ngClass]="{'checked': !checkItem(item, crsAge)}">
+        <div *ngIf="reported[0] ? checkItem(item, crsAge) : true">
+          {{ item }}
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+
+      <h3 class="title_string race">Race</h3>
+      <div *ngFor="let item of Race" [ngClass]="{'checked': !checkItem(item, crsRace)}">
+        <div *ngIf="reported[0] ? checkItem(item, crsRace) : true">
+          {{ item }}
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+
+      <h3 class="title_string race">Ethnicity</h3>
+      <div *ngFor="let item of Ethnicity" [ngClass]="{'checked': !checkItem(item, crsEthnicity)}">
+        <div *ngIf="reported[0] ? checkItem(item, crsEthnicity) : true">
+          {{ item }}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset fxLayout="column" fxLayoutAlign="space-between stretch" class="risk_factor whiteframe7">
+      <legend>Risk Factor:</legend>
+      <div fxLayout="row" fxLayoutAlign="space-around center" class="epi_col_title">
+        <h2 class="i485">Risk Factor</h2>
+        <button [matMenuTriggerFor]="appMenu2" class="md-icon-button drop_down CTU_menu_button" aria-label="Open menu">
+          <mat-icon class="material-icons epiIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+        </button>
+        <mat-menu #appMenu2="matMenu" fxFlex>
+            <button  mat-menu-item  [ngClass]="reported[1] ? 'active_characteristics' : '' " class="epi-manu-item" id="site2" md-menu-focus-target data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( $event, 1, 2 )">Site Reported Characteristics</button>
+            <button mat-menu-item  [ngClass]="!reported[1] ? 'active_characteristics' : '' " class="epi-manu-item" id="potential2" data-ng-keydown="closeOnTab( $event )"  (click)="returnFocus( $event, 1, 3 )">All Potential Characteristics</button>
+        </mat-menu>
+      </div>
+      <div *ngFor="let item of Risk_Factor" [ngClass]="{'checked': !checkItem(item, crsRisk_Factor)}">
+        <div *ngIf="reported[1] ? checkItem(item, crsRisk_Factor) : true">
+          {{ item }}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset fxLayout="column" fxLayoutAlign="space-between stretch" class="disease whiteframe7">
+      <legend>Disease/Condition:</legend>
+      <div fxLayout="row" fxLayoutAlign="space-around center" class="epi_col_title">
+        <h2 class="i485">Disease/Condition</h2>
+        <button [matMenuTriggerFor]="appMenu3" ng-value="obj.crs_name" class="md-icon-button drop_down CTU_menu_button" aria-label="Open menu">
+          <mat-icon class="material-icons epiIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+        </button>
+        <mat-menu #appMenu3="matMenu" fxFlex>
+            <button  mat-menu-item [ngClass]="reported[2] ? 'active_characteristics' : '' " class="epi-manu-item" id="site3" md-menu-focus-target data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( $event, 2, 4 )">Site Reported Characteristics</button>
+            <button mat-menu-item [ngClass]="!reported[2] ? 'active_characteristics' : '' " class="epi-manu-item" id="potential3" data-ng-keydown="closeOnTab( $event )" (click)="returnFocus( $event, 2, 5 )">All Potential Characteristics</button>
+
+        </mat-menu>
+      </div>
+      <div *ngFor="let item of Disease_Cont_Condition" [ngClass]="{'checked': !checkItem(item, crsDisease_Condition)}">
+        <div *ngIf="reported[2] ? checkItem(item, crsDisease_Condition) : true">
+          {{ item }}
+        </div>
+      </div>
+    </fieldset>
+
+  </div>
+</div>

@@ -1,0 +1,71 @@
+/**************************************
+*
+*        Map Specific Styles
+*
+***************************************/
+
+.info-window {
+
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding-left: 0;
+    border-radius: 0;
+    text-align: left;
+    line-height: 1.1em;
+    white-space: nowrap !important;
+    display: inline-block;
+    button {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }  
+}
+
+.windowname {
+    text-align: left;
+    line-height: 1.1em;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    display: block;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+    color: #0000FF;
+    display: inline-block;
+}
+
+.funded-networks-map {
+    font-weight: bold;
+    color: $primary-color;
+    font-style: italic;
+}
+
+.gm-style-iw {
+    width: auto;
+    margin: 0 0;
+    margin-bottom: 0;
+    background-color: white;
+    border-radius: 2px 2px 0 0;
+    padding: 4px;
+}
+
+mapcomponent {
+  height: 100%;
+  display: flex;
+  width: 100%;
+}
+
+#main-map-canvas {
+    position: relative;
+    // height: 100%;
+}
+
+
+.mapToast {
+    background-color: $primary-color;
+    position: relative;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    min-height: 3.5rem;
+    width: 100%;
+}

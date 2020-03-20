@@ -1,0 +1,94 @@
+<div
+*ngIf="crss"
+class="md-toolbar"
+fxLayout="row"
+fxLayoutAlign="space-between center">
+	<div>
+		<div
+		class="md-toolbar-tools"
+		fxLayout="row"
+		fxLayoutAlign="start center"
+		id="header-title-box">
+			<!-- Toggle menu button(left upper corner), slides leftNav  -->
+			<button class="skip" (click)="goToContent()">
+				Skip to content
+			</button>
+			<button
+			aria-label="Left Nav Toggle"
+			matTooltip="Collapse Left Menu"
+			(click)="leftToggle()"
+			class="d3Resize left_toggle"
+			matTooltipClass='left_nav_tooltip'>
+				<i class="fa fa-bars" alt="Close Left Menu"></i>
+			</button>
+			<!-- NIH logo and CRS Explorer name-->
+			<a routerLink='/' alt="Home Page">
+				<img
+				matTooltip="Return to Home Page"
+				class="sc-title"
+				src="images/nihbanner3.svg"
+				alt="Go to National Institute of Allergy and Infectious Diseases, CRS Explorer Homepage ">
+			</a>
+		</div>
+	</div>
+	<div
+	id="right-nav-tabs"
+	role="navigation"
+	class="md-toolbar-tools"
+	fxLayout="column"
+	fxLayoutAlign="start right">
+		<div fxLayout="row">
+			<button
+			[ngClass]="{'siteChange': siteNumChange}"
+			matTooltip="Search Results"
+			class="header-button d3Resize"
+			(click)="click_site()"
+			[ngClass]="{'highlight-button': lockRight && showFavorite === false}">
+				<mat-icon svgIcon="magnify_glass" alt="Search Results"></mat-icon>
+				<p>
+					<span class="brackets">(</span>{{crss.length}}<span class="brackets">)</span>
+				</p>
+			</button>
+			<button
+			[ngClass]="{'favChange': favNumChange}"
+			matTooltip="Favorites"
+			class="header-button d3Resize"
+			[disabled]="lockFav"
+			(click)="click_favorite()"
+			[ngClass]="{'highlight-button': showFavorite && lockRight === true}">
+				<mat-icon svgIcon="Star" alt="My Favorites"></mat-icon>
+				<p>
+					<span class="brackets">(</span>{{favoriteCrs.length}}<span class="brackets">)</span>
+				</p>
+			</button>
+			<!-- Export to Excel button -->
+			<button
+			aria-label="Export to Excel"
+			matTooltip="Export to Excel"
+			(click)="showConfirm()"
+			id="export_to_excel"
+			class="header-button d3Resize single-icon md-icon-button">
+				<mat-icon class="bigger_icon" svgIcon="Export" alt="Export To Excel"></mat-icon>
+			</button>
+			<!-- Graph button -->
+			<button
+			aria-label="Do to visualization"
+			matTooltip="Graph"
+			class="header-button d3Resize single-icon md-icon-button"
+			[disabled]="lockViz"
+			*ngIf="router.url =='/map'"
+			routerLink='/viz'>
+				<mat-icon class="bigger_icon2" svgIcon="Graph"></mat-icon>
+			</button>
+            <!-- Back to search - home button -->
+			<button
+			matTooltip="Main Map"
+			class="header-button d3Resize md-icon-button single-icon"
+			*ngIf="router.url != '/map'"
+			routerLink='/map'>
+				<mat-icon class="bigger_icon2" id="globeicon" svgIcon="world2"></mat-icon>
+			</button>
+		</div>
+	</div>
+</div>
+<div class="horizontal_line"></div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="232px" height="283px" viewBox="0 0 232 283" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Magnifer</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Magnifer">
+            <rect id="Rectangle" fill="#5E5E5E" x="0" y="0" width="232" height="283"></rect>
+            <g id="Magnifer-Glass" transform="translate(46.000000, 66.000000)">
+                <circle id="Oval" fill="#F4D36D" cx="51" cy="51" r="51"></circle>
+                <rect id="Rectangle-2" fill="#F4D36D" transform="translate(110.053797, 105.360688) rotate(42.000000) translate(-110.053797, -105.360688) " x="59.053797" y="99.3212147" width="102" height="12.0789474" rx="6.03947368"></rect>
+                <circle id="Oval-2" fill="#5E5E5E" cx="51" cy="51" r="41.6052632"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

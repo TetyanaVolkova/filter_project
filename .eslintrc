@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 7
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-empty": "error",
+    "no-empty-function": "error",
+    "no-extra-semi": "error",
+    "no-floating-decimal": "error",
+    "no-implicit-globals": "warn",
+    "no-unused-expressions": "error",
+    "no-restricted-globals": "warn",
+    "no-unused-vars": "error",
+    "no-undefined": "error",
+    "space-in-parens": [
+      "error",
+      "always",
+      {
+        "exceptions": ["{}", "()"]
+      }
+    ]
+  }
+}

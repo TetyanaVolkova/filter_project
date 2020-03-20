@@ -1,0 +1,688 @@
+/*********************************************************************************************
+*                               SITE PROFILE  -- Across Multiple                            *
+*********************************************************************************************/
+
+link-directive, linkcomponent {
+    cursor: pointer;
+    color: transparent;
+    a {
+        color: transparent;
+    }
+}
+linkcomponent {
+    margin-right: 3.4vw;
+}
+
+linkcomponent {
+    margin-right: 3.4vw;
+}
+
+// #epi-main-content, #labCRScontent {
+//     background: #f5f5f5;
+// }
+md-dialog-content {
+    p {
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+    }
+    md-checkbox {
+        margin-left: 2.5% !important;
+    }
+    .definition {
+        padding: 0 2.5%;
+    }
+}
+
+.mat-menu-panel {
+    max-width: 100% !important;
+}
+
+.mat-menu-content {
+    padding: 0 !important;
+}
+
+/*md-toolbar for heading bar 07/21/2015*/
+.md-tool-bar {
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.2rem;
+}
+md-tabs md-ink-bar {
+    color: $nav-colors-4;
+}
+
+/*Add by Wei  05/12/2015*/
+#sitename {
+    font-weight: 500;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.profileContainer {
+    overflow: auto;
+    .disclaimer {
+        margin-top: 0.5rem;
+        padding: 0.5rem 5%;
+        background-color: $nav-colors-1;
+        color: white;
+        width: auto;
+        font-size: 0.83em;
+        font-weight: bold;
+        .buttonDis {
+            height: 0.83em;
+            width: 1em;
+            line-height: 0.83em;
+            min-height: 0.5em;
+            overflow: visible;
+            padding: 0;
+        }
+        .envDis {
+            height: 1.2em;
+        }
+    }
+}
+
+.buttonDis mat-icon svg {
+    fill: #FFFFFF;
+}
+
+.lab_Container,
+.profile_Container {
+    transition: 1s;
+    .profilebar {
+        padding-left: 1.5vw;
+        white-space: normal !important;
+        background-color: $primary-color;
+        color: rgba(255,255,255,0.87);
+        font-size: 1.2rem;
+
+        .md-toolbar-tools {
+            -webkit-align-items: center;
+            align-items: center;
+            min-width: 0rem;
+            width: 100%;
+        }
+
+        span {
+            display: inline-table;
+        }
+
+        a {
+            vertical-align: middle;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        img {
+            background-repeat: no-repeat no-repeat;
+            height: 25px;
+            width: 25px;
+        }
+    }
+    h3 {
+        font-size: 16px;
+    }
+}
+
+#profileflex {
+    margin-bottom: 0.5%;
+}
+
+.whiteframe {
+    margin-bottom: 1%;
+    -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+}
+
+.whiteframe7 {
+    -webkit-box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+}
+
+md-content {
+    background-repeat: repeat;
+}
+.content-container {
+    overflow: hidden;
+}
+md-divider {
+    color: $primary-accent;
+}
+
+.cards {
+    background-color: white;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.center-col {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.cardrow {
+    div {
+        padding-left: 0.8rem;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.cardrow h4,
+.cardrow h3,
+.cardrow p,
+.cardrow > .md-item-text {
+    margin: 0.5rem 0rem;
+}
+
+// Headers for Popups
+
+.profile-popups,
+.lab-popups,
+.pharm-popups,
+.dialog_header {
+    padding: .5rem 0 .5rem 1.25rem;
+    color: #FFFFFF;
+    width: 100% !important;
+    min-width: 15rem !important;
+    .mat-dialog-title {
+        max-width: 95% !important;
+    }
+    h2 {
+        margin: 0 !important;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    .mat-raised-button {
+        padding: 0;
+        background: transparent;
+        box-shadow: none !important;
+        border-radius: 50px;
+        :hover, :focus {
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .3);
+        }
+        i {
+            width: 24px;
+            height: 20px;
+            border-radius: 50%;
+            padding-top: 4px;
+        }
+    }
+}
+
+.dialog_header {
+    background-color: $nih-color;
+    padding: .5rem 0;
+}
+
+.profile-popups {
+    background-color: $nav-colors-1;
+}
+
+.pharm-popups {
+    background-color: $nav-colors-2;
+}
+
+.lab-popups {
+    background-color: $nav-colors-3;
+}
+
+md-dialog > form {
+    overflow: hidden;
+}
+
+// so the dropdown icon for CRS's associated with CTUs matches
+.CrsCtuIcon {
+    line-height: 6px !important;
+    color: $primary-color;
+}
+
+.mapToast div {
+    color: white;
+    vertical-align: middle;
+    margin-left: 1vw;
+    img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        margin-bottom: 4px;
+        vertical-align: middle;
+    }
+}
+
+// in-view crs title w/ padding adjustments
+.crs-title {
+    text-align: center;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+/*********************************************************************************************
+*                                        SITE PROFILE/INDEX                                  *
+*********************************************************************************************/
+.profile {
+    overflow: hidden;
+}
+
+agm-map {
+    height: 100%;
+    width: 100%;
+}
+
+#profile-map {
+    width: 100%;
+    position: relative;
+    margin-left: 0.5rem;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+}
+
+profileindexcomponent, laboratorycomponent, pharmacycomponent, populationcharacteristicscomponent {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+population-characteristics-component {
+    height: 100%;
+    #epi-main-content {
+        padding: 8px;
+    }
+}
+
+.sitesrow {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.sitesrow .md-raised {
+    min-width: 0rem;
+    margin: 0.1rem;
+    display: inline-block;
+    white-space: normal;
+    text-align: left;
+}
+
+.md-button > p {
+    margin: 0;
+    color: $accent-color;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 1rem/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mat-menu-item {
+    margin: 0;
+}
+
+#fundedmenu {
+    background-color: $funded-color;
+    padding: 10px;
+    margin: 0;
+    color: white;
+}
+
+.funded_sites {
+    margin: auto 0;
+}
+
+#ufmenu {
+    background-color: $unfunded-color;
+    padding: 10px;
+    margin: 0;
+    color: white;
+}
+
+md-menu-content {
+    padding: 0;
+    max-height: 100% !important;
+}
+md-menu-item:hover {
+    background-color: #cccccc;
+}
+md-menu-item > a.md-button {
+    color: inherit;
+}
+
+md-backdrop {
+    background-color: black;
+    opacity: 0.25;
+}
+
+#ClinRegs {
+    padding: 0 5%;
+    i {
+        font-size: 0.8rem;
+    }
+}
+.email_link {
+    display: flex;
+    margin-left: 10px;
+    #emailbtn {
+        margin: auto 0;
+        color: rgb(68, 68, 68);
+    }
+}
+.regulatory_requirements {
+    padding-bottom: 0.7rem;
+}
+
+/*********************************************************************************************
+*                                             LAB                                           *
+*********************************************************************************************/
+.leftDis {
+    margin-top: 15%;
+}
+
+.labContainer,
+.pharmacyContainer,
+.epiContainer {
+    .disclaimer {
+        margin-top: 0.5rem;
+        padding: 0.5rem 5%;
+        color: white;
+        width: auto;
+        font-size: 0.83em;
+        font-weight: bold;
+        .buttonDis {
+            height: 0.83em;
+            width: 1em;
+            line-height: 0.83em;
+            min-height: 0.5em;
+            overflow: visible;
+            padding: 0;
+        }
+        .envDis {
+            height: 1.2em;
+        }
+    }
+}
+
+.labContainer {
+    .disclaimer {
+        background-color: $nav-colors-3;
+    }
+}
+
+.directiveid {
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.pharmacyContainer {
+    .disclaimer {
+        background-color: $nav-colors-2;
+    }
+}
+
+.epiContainer {
+    .disclaimer {
+        background-color: $nav-colors-4;
+    }
+}
+
+/*For Editing Lab Tab Labels*/
+
+.pharmacy_tabs .mat-ink-bar {
+    border-bottom: 3px solid $nav-colors-2;
+}
+
+.lab_tabs .mat-ink-bar {
+    border-bottom: 3px solid $nav-colors-3;
+}
+
+.label md-tab-item, .label .mat-tab-label {
+    color: #000 !important; /* to change the tab label color */
+    font-weight: 500;
+    text-transform: capitalize;
+    display: block;
+    height: 3rem;
+    opacity: 1;
+    padding-top: 15px;
+}
+.lab_tabs md-tab-item:hover, .lab_tabs .mat-tab-label:hover {
+    border-bottom: 4px solid $nav-colors-3;
+}
+
+.lab_tabs .mat-ink-bar {
+    border-bottom: 2px solid $nav-colors-3 !important;
+    background-color: $nav-colors-3 !important;
+}
+.pharmacy_tabs md-tab-item:hover, .pharmacy_tabs .mat-tab-label:hover {
+    border-bottom: 4px solid $nav-colors-2;
+}
+md-tab-item span {
+    color: black;
+}
+mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {	
+    border-bottom: 2px solid $nav-colors-2;	
+}
+
+#rel-sites-menu {
+    md-menu-item {
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+}
+
+#qalist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+#qalist li {
+    margin: 0 0 0.8rem 0;
+}
+
+/*Lab Tests Performed Columns*/
+.testcol {
+    background: #ffffff;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+}
+.testcol > div {
+    display: block;
+    padding: 0.25em;
+}
+.lab_cards {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+#lab-map {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin: 0.5rem;
+}
+
+.lab_tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-ink-bar {
+    background: $nav-colors-3;
+    height: 4px;
+}
+
+.pharmacy_tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-ink-bar {
+    background: $nav-colors-2;
+    height: 4px;
+}
+
+md-toolbar.md-accent > .lab-tabs.md-default-theme,
+.lab_tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-ink-bar {
+    width: 85px;
+}
+md-tabs-canvas {
+    margin-left: 8px;
+}
+md-tabs[md-border-bottom] md-tabs-wrapper {
+    border-width: 0;
+}
+
+/*******************************************************************************
+*                              EPIDEMIOLOGY                                   *
+*******************************************************************************/
+.CTU_menu_button {
+    margin: auto 0 !important;
+    height: 24px !important;
+    width: 24px !important;
+    display: flex;
+    margin-left: 5px;
+    img {
+        margin: auto;
+    }
+}
+
+.epiIcon {
+    color: #ffffff;
+}
+
+fieldset .drop_down {
+    background: #444444;
+    border: none;
+}
+
+.title_string ~ md-divider {
+    width: 90%;
+    margin-left: 1vw;
+}
+
+.epi-manu-item {
+    background-color: white;
+    border: none;
+}
+
+.epi-manu-item:hover{
+     background: rgba(0,0,0,.04);
+  
+}
+.epi-manu-item:hover, .epi-manu-item:active {
+    outline: none;
+    font-weight: bold;
+
+}
+
+#potential1:focus, #potential2:focus, #potential3:focus {
+    font-weight: bold;
+}
+
+#site1:focus, #site2:focus, site3:focus {
+    font-weight: bold;
+}
+
+.active_characteristics, #site1 .active_characteristics:hover, #site2 .active_characteristics:hover, #site3
+.active_characteristics:hover {
+    background-color: #326496 !important;
+    color: white !important;
+    button {
+        background-color: #326496 !important;
+        color: white !important;
+    }
+}
+
+.checked {
+    color: #ccc;
+}
+
+.epi_col_title {
+    height: 58px;
+    background-color: $primary-color;
+    margin-bottom: 1rem;
+}
+
+.epi_Container {
+    overflow: auto;
+    .demogs,
+    .risk_factor,
+    .disease {
+        width: 100%;
+        margin: 5px 5px;
+        padding-bottom: 40px !important;
+        md-checkbox {
+            margin-left: 1rem;
+            cursor: text;
+        }
+    }
+    .disclaimer {
+        background-color: $nav-colors-3;
+        color: white;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+        width: auto;
+    }
+    fieldset {
+        background-color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 0 !important;
+        div {
+            font-size: 10pt;
+            line-height: 2rem;
+            padding-left: 2rem;
+        }
+        legend {
+            height: 0;
+            visibility: hidden;
+        }
+        h2 {
+            margin: 0;
+            color: #fff;
+            margin-left: -1rem;
+            font-size: 1.17em;
+            font-weight: 500;
+        }
+        h3 {
+            font-style: italic;
+            margin: 1.2rem 0.5rem 0.5rem 1.3rem;
+            font-size: 0.83em;
+        }
+    }
+}
+
+// Also used in IMPAACT dialog box
+md-checkbox {
+    cursor: default;
+    .md-container {
+        height: 18px;
+        width: 18px;
+    }
+    .md-icon {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+md-checkbox.md-checked .md-icon {
+    background-color: $nih-color;
+}
+
+.no-profile-data {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}

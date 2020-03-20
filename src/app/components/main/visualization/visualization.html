@@ -1,0 +1,230 @@
+<style>
+  .tabParagraph {
+    margin: 1.5% 7% 1.5% 7%;
+    color: #000000;
+    font-size: 1.5vmin;
+  }
+  #statistic_total:focus,
+  #statistic_fully_funded:focus,
+  #statistic_unfunded:focus,
+  #statistic_not_funded:focus {
+    background-color: #efefef;
+  }
+  #dashboard {
+    margin: auto;
+    margin-top: 14px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+      0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+  }
+  #category-container {
+    background: #ffffff;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+      0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+    width: 90%;
+    margin: auto;
+  }
+  .Lactive,
+  .Linactive {
+    font-size: 1vh;
+    font-weight: bold;
+  }
+
+   .Linactive {
+    opacity: 0.2;
+  }
+
+  .Lactive button {
+    font-size: 2em;
+    font-weight: bold;
+    height: 2.4em;
+  }
+
+  .Linactive #statistic_total,
+  .Linactive #statistic_fully_funded,
+  .Linactive #statistic_unfunded,
+  .Linactive #statistic_not_funded {
+    font-size: 2em;
+    height: 2.4em;
+    font-weight: bold;
+    opacity: 0.2;
+  }
+  .categoryText {
+    font-size: 1.2em;
+    color: #092939;
+  }
+
+  .Lactive #statistic_total {
+    color: #326496;
+  }
+  .Lactive #statistic_fully_funded {
+    color: #000066;
+  }
+  .Lactive #statistic_unfunded {
+    color: #7c7c7c;
+  }
+  .Lactive #statistic_not_funded {
+    color: #1d1dff;
+  }
+  .summaryContainer button {
+    min-width: 100%;
+    padding: 0;
+  }
+  .viz_tabs {
+    height: 16.5vh;
+  }
+  ::ng-deep .viz_tabs > .mat-tab-header {
+    background-color: #444444;
+    height: 6vh;
+    text-align: center;
+    color: white;
+    opacity: 1 !important;
+  }
+  ::ng-deep .viz_tabs md-tabs-wrapper md-tabs-canvas {
+    margin: 0;
+    background: #444444;
+  }
+  ::ng-deep .viz_tabs .mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+    height: 6vh;
+    font-weight: 700 !important;
+  }
+  ::ng-deep .viz_tabs .mat-ink-bar {
+    border-bottom: 2px solid #326496 !important;
+    background-color: #326496 !important;
+  }
+  ::ng-deep .viz_tabs .mat-tab-body-content {
+    overflow: hidden;
+  }
+</style>
+
+<div *ngIf="crss" fxLayout="column" class="data-viz-container">
+  <!-- Dataviz -->
+
+  <div id="dashboard">
+    <barchart [data]="crss" [val]="viz_data" [filter]="filter"></barchart>
+  </div>
+
+  <!-- bottom tabs -->
+  <div id="category-container">
+    <mat-tab-group role="tablist" class="viz_tabs">
+      <!-- First tab -->
+      <mat-tab label="Summary Results">
+        <div
+          fxLayout="row"
+          fxLayoutAlign="space-around stretch"
+          class="summaryContainer"
+        >
+          <div
+            fxFlex="10"
+            [ngClass]="selected == 1 || selected == 0 ? 'Lactive' : 'Linactive'"
+          >
+            <button
+              mat-button
+              id="statistic_total"
+              (click)="handleSummaryResults(1)"
+            >
+              {{ statistic.total }}
+            </button>
+            <div
+              class="categoryText"
+              fxLayout="column"
+              fxLayoutAlign="start center"
+            >
+              <div>Total</div>
+              <div>Sites</div>
+              <div>Found</div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="10"
+            [ngClass]="selected == 2 || selected == 0 ? 'Lactive' : 'Linactive'"
+          >
+            <button
+              mat-button
+              id="statistic_fully_funded"
+              (click)="handleSummaryResults(2)"
+            >
+              {{ statistic.fully_funded }}
+            </button>
+            <div
+              class="categoryText"
+              fxLayout="column"
+              fxLayoutAlign="start center"
+            >
+              <div>Full</div>
+              <div>Network</div>
+              <div>Affiliation(s)</div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="10"
+            [ngClass]="selected == 3 || selected == 0 ? 'Lactive' : 'Linactive'"
+          >
+            <button
+              mat-button
+              id="statistic_unfunded"
+              (click)="handleSummaryResults(3)"
+            >
+              {{ statistic.unfunded }}
+            </button>
+            <div
+              class="categoryText"
+              fxLayout="column"
+              fxLayoutAlign="start center"
+            >
+              <div>Protocol</div>
+              <div>Specific</div>
+              <div>Only</div>
+            </div>
+          </div>
+
+          <div
+            fxFlex="10"
+            [ngClass]="selected == 4 || selected == 0 ? 'Lactive' : 'Linactive'"
+          >
+            <button
+              mat-button
+              id="statistic_not_funded"
+              (click)="handleSummaryResults(4)"
+            >
+              {{ statistic.not_funded }}
+            </button>
+            <div
+              class="categoryText"
+              fxLayout="column"
+              fxLayoutAlign="start center"
+            >
+              <div>NIAID</div>
+              <div>Reserve</div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Second tab -->
+      <mat-tab label="*Description">
+        <div class="tabParagraph">
+          Visualization of selected site data from the NIAID HIV/AIDS Network
+          Clinical Research Sites broken down into three categories of sites:
+          <strong>Full Network Affiliation(s)</strong>,
+          <strong>Protocol Specific Only</strong>, and
+          <strong>Network Reserve </strong> (see
+          <a ui-sref="landing.glossary" href="/glossary" style="color:#0b00c8"
+            >Acronyms &amp; Glossary</a
+>).
+        </div>
+      </mat-tab>
+
+      <!-- Third tab -->
+      <mat-tab label="How-To">
+        <div class="tabParagraph">
+          Select items from the left-side navigation bar to manipulate and view
+          summary data being displayed.
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

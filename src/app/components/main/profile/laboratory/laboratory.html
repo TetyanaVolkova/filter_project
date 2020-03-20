@@ -1,0 +1,126 @@
+<div *ngIf="crs" class="lab_Container">
+  <div tabindex="-1" id="labCRScontent" class="main-content" fxLayout="row" fxFlex>
+  <!-- span spacer -->
+  <!--center column start -->
+    <div fxLayout="column" fxLayoutAlign="space-around" fxFlex class="center-col profileColumn">
+      <h1 tabindex="0" class="crs-title" fxLayoutAlign="center center">{{crs.crs_id + ' - ' + crs.crs_name | blacklistPipe}}
+      </h1>
+      <p class="no-profile-data" *ngIf="crs.laboratories.length === 0">No Laboratory data available.</p>
+      <div *ngIf="crs.laboratories.length">
+        <mat-tab-group class="label lab_tabs">
+            <mat-tab label="Lab {{i + 1}}" *ngFor="let lab of crs.laboratories; index as i">
+              <div class="content-container" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="space-around">
+    <!-- Column For Cards -->
+                <div class="lab_cards" fxLayout="column" fxLayoutAlign="space-between">
+    <!--Lab Info Card!-->
+                  <div class="whiteframe" fxLayout="column" fxLayoutAlign="center">
+                    <mat-toolbar class="profilebar" fxLayout="row">
+                      <h2>Laboratory <span>Information <linkDirective directiveid="labInformation" type="lab1" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective></span>
+                      </h2>
+                    </mat-toolbar>
+
+                    <div class="md-item-text cards" *ngIf="lab.lab_name != null">
+                      <div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center">
+                        <h3 fxFlex="40">Name:</h3>
+                        <p fxFlex>{{lab.lab_name}} </p>
+                      </div>
+                      <mat-divider *ngIf="lab.lab_name != null && lab.lab_name != '' "></mat-divider>
+
+                      <div class="cardrow address" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="lab.location != null && lab.location != '' ">
+                        <h3 fxFlex="40">Address:</h3>
+                          <p class= "addRow md-item-text" fxFlex>{{lab.location}}</p>
+                      </div>
+                      <mat-divider *ngIf="lab.location != null && lab.location != '' "></mat-divider>
+
+                      <div class="cardrow"  fxLayout="row" fxLayoutAlign="space-around center" *ngIf="lab.LDMS != null && lab.LDMS != '' ">
+                        <h3 fxFlex="40">LDMS #:</h3>
+                        <p fxFlex>{{lab.LDMS}}</p>
+                      </div>
+                      <mat-divider *ngIf="lab.LDMS != null || lab.LDMS != '' "></mat-divider>
+
+                      <div *ngIf="(lab.related_lab | fundedPipe).length ">
+                        <div class="cardrow" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="(lab.related_lab | fundedPipe).length">
+                          <h3 fxFlex="40">Related CRS(s):</h3>
+                          <button mat-icon-button [matMenuTriggerFor]="appMenu" class="CTU_menu_button lab-icon" aria-label="Open Related Sites menu">
+                            <mat-icon class="material-icons CrsCtuIcon" alt="drop down">arrow_drop_down_circle</mat-icon>
+                          </button>
+                          <mat-menu #appMenu="matMenu" fxFlex>
+                            <div id="rel-sites-menu" >
+                              <!-- FUNDED RELATED SITES -->
+                              <p id="fundedmenu" *ngIf="(lab.related_lab | fundedPipe).length">Network Affiliation(s)</p>
+                              <div mat-menu-item data-ng-keydown="closeOnTab( $event )" tabindex="0" *ngFor="let obj of lab.related_lab | fundedPipe">
+                                <p class="funded_sites">
+                                  <span>{{obj.crs_id + " - " + obj.crs_name}}{{$lpst ? '' : ''}}</span>
+                                </p>
+                              </div>
+                            </div>
+                          </mat-menu>
+                        </div>
+                        <mat-divider *ngIf="lab.related_lab != null"></mat-divider>
+                      </div>
+                      <div class="cardrow"  fxLayout="row" fxLayoutAlign="space-around center" *ngIf="lab.networks != null && lab.networks != '' && crs.crs_type != 'unfunded' ">
+                        <h3 fxFlex="40">Network Affiliation:</h3>
+                        <p fxFlex>{{lab.networks}}</p>
+                      </div>
+                      <mat-divider *ngIf="lab.networks != null && lab.networks != '' && crs.crs_type != 'unfunded' "></mat-divider>
+
+                      <div class="cardrow"  fxLayout="row" fxLayoutAlign="space-around center" *ngIf="lab.Certified_By != null && lab.Certified_By != '' ">
+                        <!-- Accrediting Certification: -->
+                        <h3 fxFlex="40">Accreditation:</h3>
+                        <p fxFlex> {{lab.Certified_By}} </p>
+                      </div>
+                      <mat-divider *ngIf="lab.Certified_By != null && lab.Certified_By != '' "></mat-divider>
+
+                      <div class="cardrow"  fxLayout="row" fxLayoutAlign="space-around center" *ngIf="lab.qa_services != null && lab.qa_services != '' ">
+                        <h3 fxFlex="40">Quality Assurance:</h3>
+                        <ul fxFlex id="qalist">
+                          <li *ngFor="let qa of lab.qa_services.split(',').sort()">
+                            <span>{{qa}}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+            <!-- Card for Tests -->
+                  <div class="profilebox tests_performed whiteframe" fxLayout="column" fxLayoutAlign="center" *ngIf="lab.lab_test_performed !== null" >
+                    <mat-toolbar class="profilebar" fxLayout="row">
+                        <h2>Tests <span>Performed <linkDirective directiveid="testPerformed" type="lab2" imgurl="images/ic_help_white_18dp_2x.png" alt="Click for more information"></linkDirective></span>
+                        </h2>
+                    </mat-toolbar>
+
+                    <div class="testcol" fxLayout="row wrap" fxLayoutAlign="start center">
+                      <div fxFlex="33" fxFlex.lg="50" fxFlex.sm="50" fxFlex.xs="50" *ngFor="let name of lab.lab_test_performed">
+                        <span>{{name}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div> <!--Closes Left Column-->
+                <!--Map Column-->
+                <div id="profile-map" class="profilebox whiteframe" fxLayout="column" fxLayoutAlign="center">
+                    <agm-map [latitude]="convertNum(lab.coords.latitude)" [longitude]="convertNum(lab.coords.longitude)" [styles]="styles">
+                        <agm-marker  *ngFor="let name of objectKeys(legends)"
+                            [latitude]="convertNum(lab.coords.latitude)"
+                            [longitude]="convertNum(lab.coords.longitude)"
+                            [iconUrl]="labMarker">
+                        </agm-marker>
+                        <agm-marker 
+                            [latitude]="lat"
+                            [longitude]="lng"
+                            [iconUrl]="marker">
+                        </agm-marker>
+                    </agm-map>
+
+                    <div class="mapToast"  fxLayout="row" fxLayoutAlign="center center">
+                        <div *ngFor="let name of objectKeys(legends)"><img src="{{legends[name]}}" alt=""/> {{name}}</div>
+                    </div>
+                </div>
+              </div>
+            </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+    <!-- span spacer -->
+  </div>
+</div>
